@@ -3,6 +3,7 @@ import Metadata from "next";
 import Image from "next/image";
 import Link from "next/link";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { getAllSiteContent } from "@/lib/services/content";
 
 export const metadata = {
@@ -19,33 +20,35 @@ export default async function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* PAGE HEADER / HERO */}
-      <section className="relative py-16 lg:py-24 bg-gradient-to-b from-paper via-paper to-primary/5 border-b border-mutedBorder">
+      <section className="relative py-16 lg:py-24 bg-gradient-to-b from-paper via-paper to-primary/5 border-b border-mutedBorder overflow-hidden">
         <EmbraceMotif variant="hero-bg" className="left-6 top-6" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
-            <span className="w-2 h-2 rounded-full bg-primary" />
-            Who We Are • Our Mandate
-          </div>
+          <ScrollReveal animation="fade-up">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold uppercase tracking-wider mb-4">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              Who We Are • Our Mandate
+            </div>
 
-          <h1 className="font-display text-4xl sm:text-5xl font-bold text-ink mb-6 leading-tight">
-            Nurturing Generations, Transforming Communities
-          </h1>
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-ink mb-6 leading-tight">
+              Nurturing Generations, Transforming Communities
+            </h1>
 
-          <p className="text-lg sm:text-xl text-ink/80 font-body leading-relaxed max-w-3xl mx-auto">
-            SCWOP (Support for Children, Women and Older People) is a registered
-            non-governmental organization committed to creating interconnected safety
-            nets for society’s most vital yet often vulnerable populations.
-          </p>
+            <p className="text-lg sm:text-xl text-ink/80 font-body leading-relaxed max-w-3xl mx-auto">
+              SCWOP (Support for Children, Women and Older People) is a registered
+              non-governmental organization committed to creating interconnected safety
+              nets for society’s most vital yet often vulnerable populations.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* MISSION & VISION GRID */}
       <section className="py-20 bg-paper border-b border-mutedBorder">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <ScrollReveal animation="stagger-children" stagger={0.2} className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Mission Card */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="space-y-4">
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -67,7 +70,7 @@ export default async function AboutPage() {
             </div>
 
             {/* Vision Card */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between">
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="space-y-4">
                 <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center text-ink">
                   <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -88,14 +91,14 @@ export default async function AboutPage() {
                 Sustainable Future & Human Dignity
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* CORE OBJECTIVES SECTION */}
       <section className="py-20 bg-gradient-to-b from-paper to-accent/5 border-b border-mutedBorder">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-semibold uppercase tracking-wider text-secondaryAccent block mb-2">
               Strategic Focus
             </span>
@@ -105,9 +108,9 @@ export default async function AboutPage() {
             <p className="text-base text-ink/75 mt-3">
               Designed around the 3 pillars of community care: youth development, women's self-reliance, and senior wellbeing.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <ScrollReveal animation="stagger-children" stagger={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Objective 1: Children */}
             <div className="p-8 rounded-3xl bg-white border border-mutedBorder shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 font-display font-bold text-xl">
@@ -179,7 +182,7 @@ export default async function AboutPage() {
                 </li>
               </ul>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -188,35 +191,39 @@ export default async function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full">
-                <Image
-                  src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-                  alt="SCWOP founding gathering and community elders"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
+              <ScrollReveal animation="slide-right">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full">
+                  <Image
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+                    alt="SCWOP founding gathering and community elders"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </ScrollReveal>
             </div>
 
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-semibold uppercase tracking-wider text-primary block">
-                Our Journey & Roots
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
-                Founding Story & History
-              </h2>
-              <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
-                {content.about_founding_story}
-              </p>
-              <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20">
-                <blockquote className="font-display text-lg italic text-ink">
-                  &ldquo;When a grandmother is cared for, a mother is supported, and a child is educated, the entire village flourishes.&rdquo;
-                </blockquote>
-                <span className="text-xs font-semibold text-primary block mt-3 uppercase tracking-wider">
-                  — SCWOP Founding Principle
+            <div className="lg:col-span-6">
+              <ScrollReveal animation="slide-left" className="space-y-6">
+                <span className="text-xs font-semibold uppercase tracking-wider text-primary block">
+                  Our Journey & Roots
                 </span>
-              </div>
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
+                  Founding Story & History
+                </h2>
+                <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
+                  {content.about_founding_story}
+                </p>
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20">
+                  <blockquote className="font-display text-lg italic text-ink">
+                    &ldquo;When a grandmother is cared for, a mother is supported, and a child is educated, the entire village flourishes.&rdquo;
+                  </blockquote>
+                  <span className="text-xs font-semibold text-primary block mt-3 uppercase tracking-wider">
+                    — SCWOP Founding Principle
+                  </span>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -226,7 +233,7 @@ export default async function AboutPage() {
 
       {/* CALL TO ACTION */}
       <section className="py-16 bg-ink text-paper">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <ScrollReveal animation="fade-up" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="font-display text-3xl font-bold text-paper">
             Partner with SCWOP Today
           </h2>
@@ -236,12 +243,12 @@ export default async function AboutPage() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="px-8 py-3.5 rounded-full font-medium bg-accent text-ink hover:bg-accent-hover transition-colors shadow-md text-base inline-block focus-visible:ring-2 focus-visible:ring-white"
+              className="btn-shimmer px-8 py-3.5 rounded-full font-medium bg-accent text-ink hover:bg-accent-hover transition-colors shadow-md text-base inline-block focus-visible:ring-2 focus-visible:ring-white"
             >
               Get in Touch With Us
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

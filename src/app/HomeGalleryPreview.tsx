@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { GalleryImage } from "@/lib/types/database";
 import Lightbox from "./gallery/Lightbox";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 interface HomeGalleryPreviewProps {
   images: GalleryImage[];
@@ -16,7 +17,7 @@ export default function HomeGalleryPreview({ images }: HomeGalleryPreviewProps) 
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ScrollReveal animation="stagger-children" stagger={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {images.map((image, index) => (
           <div
             key={image.id}
@@ -60,7 +61,7 @@ export default function HomeGalleryPreview({ images }: HomeGalleryPreviewProps) 
             </div>
           </div>
         ))}
-      </div>
+      </ScrollReveal>
 
       {/* Lightbox Modal */}
       {activeImage && (

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import { getAllSiteContent } from "@/lib/services/content";
 import { getGalleryImages } from "@/lib/services/gallery";
 import HomeGalleryPreview from "./HomeGalleryPreview";
@@ -23,109 +24,113 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-7 text-left">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 border border-mutedBorder shadow-xs text-ink text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-                Intergenerational Support • NGO
-              </div>
+            <div className="lg:col-span-7 text-left">
+              <ScrollReveal animation="slide-right" duration={0.8} className="space-y-7">
+                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/80 border border-mutedBorder shadow-xs text-ink text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+                  <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
+                  Intergenerational Support • NGO
+                </div>
 
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient-primary leading-[1.15] tracking-tight">
-                {content.hero_title}
-              </h1>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-gradient-primary leading-[1.15] tracking-tight">
+                  {content.hero_title}
+                </h1>
 
-              <p className="text-lg sm:text-xl text-ink/85 max-w-2xl font-body leading-relaxed">
-                {content.hero_tagline}
-              </p>
+                <p className="text-lg sm:text-xl text-ink/85 max-w-2xl font-body leading-relaxed">
+                  {content.hero_tagline}
+                </p>
 
-              {/* Three Generation Pillars Badges */}
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                <span className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Children's Protection
-                </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-accent/20 border border-accent/40 text-ink text-xs font-semibold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                  Women's Empowerment
-                </span>
-                <span className="px-3.5 py-1.5 rounded-full bg-secondaryAccent/20 border border-secondaryAccent/30 text-ink text-xs font-semibold flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-secondaryAccent" />
-                  Elders' Dignity & Care
-                </span>
-              </div>
+                {/* Three Generation Pillars Badges */}
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <span className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                    Children's Protection
+                  </span>
+                  <span className="px-3.5 py-1.5 rounded-full bg-accent/20 border border-accent/40 text-ink text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                    Women's Empowerment
+                  </span>
+                  <span className="px-3.5 py-1.5 rounded-full bg-secondaryAccent/20 border border-secondaryAccent/30 text-ink text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondaryAccent" />
+                    Elders' Dignity & Care
+                  </span>
+                </div>
 
-              {/* CTAs */}
-              <div className="pt-3 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/gallery"
-                  className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-primary text-white hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base inline-flex items-center gap-3 group"
-                >
-                  <span>{content.hero_cta_primary}</span>
-                  <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
+                {/* CTAs */}
+                <div className="pt-3 flex flex-wrap items-center gap-4">
+                  <Link
+                    href="/gallery"
+                    className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-primary text-white hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base inline-flex items-center gap-3 group"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
+                    <span>{content.hero_cta_primary}</span>
+                    <svg
+                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
 
-                <Link
-                  href="/contact"
-                  className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-accent text-ink hover:bg-accent-hover transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base"
-                >
-                  {content.hero_cta_secondary}
-                </Link>
-              </div>
+                  <Link
+                    href="/contact"
+                    className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-accent text-ink hover:bg-accent-hover transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base"
+                  >
+                    {content.hero_cta_secondary}
+                  </Link>
+                </div>
+              </ScrollReveal>
             </div>
 
             {/* Right Visual Image Card with Floating Badge */}
             <div className="lg:col-span-5 relative">
-              {/* Floating Badge */}
-              <div className="absolute -top-4 -left-4 z-20 hidden sm:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 backdrop-blur-xl border border-mutedBorder shadow-lg animate-float">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
-                  ❤
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-ink block leading-none">
-                    Community Safety Net
-                  </span>
-                  <span className="text-[10px] font-medium text-primary block mt-0.5">
-                    100% Direct Impact
-                  </span>
-                </div>
-              </div>
-
-              <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop"
-                    alt="SCWOP children and elders in community learning center"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+              <ScrollReveal animation="scale-up" delay={0.2} duration={1}>
+                {/* Floating Badge */}
+                <div className="absolute -top-4 -left-4 z-20 hidden sm:flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/90 backdrop-blur-xl border border-mutedBorder shadow-lg animate-float">
+                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
+                    ❤
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-ink block leading-none">
+                      Community Safety Net
+                    </span>
+                    <span className="text-[10px] font-medium text-primary block mt-0.5">
+                      100% Direct Impact
+                    </span>
+                  </div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-7 text-paper space-y-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-accent block">
-                    Three Generations, One Mission
-                  </span>
-                  <p className="font-display text-2xl font-bold leading-snug">
-                    Children • Women • Older Adults
-                  </p>
-                  <p className="text-xs text-paper/80 font-body">
-                    Empowering vulnerable families with care, dignity, and education.
-                  </p>
+                <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
+                  <div className="relative aspect-[4/5] w-full">
+                    <Image
+                      src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop"
+                      alt="SCWOP children and elders in community learning center"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                  </div>
+
+                  <div className="absolute bottom-0 left-0 right-0 p-7 text-paper space-y-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-accent block">
+                      Three Generations, One Mission
+                    </span>
+                    <p className="font-display text-2xl font-bold leading-snug">
+                      Children • Women • Older Adults
+                    </p>
+                    <p className="text-xs text-paper/80 font-body">
+                      Empowering vulnerable families with care, dignity, and education.
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -134,7 +139,7 @@ export default async function HomePage() {
       {/* HIGHLIGHT / STAT CARDS SECTION */}
       <section className="py-20 bg-paper border-b border-mutedBorder relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <ScrollReveal animation="stagger-children" stagger={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Stat Card 1 */}
             <div className="glass-card glass-card-hover p-8 rounded-3xl relative overflow-hidden group">
               <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-5 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
@@ -194,13 +199,13 @@ export default async function HomePage() {
                 {content.stat_4_label}
               </span>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* MISSION EXCERPT SECTION */}
       <section className="py-24 bg-gradient-to-br from-paper via-accent/5 to-paper relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <ScrollReveal animation="fade-up" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <EmbraceMotif variant="badge" className="mb-8" />
 
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink mb-6">
@@ -232,7 +237,7 @@ export default async function HomePage() {
               />
             </svg>
           </Link>
-        </div>
+        </ScrollReveal>
 
         <EmbraceMotif variant="divider" />
       </section>
@@ -240,7 +245,7 @@ export default async function HomePage() {
       {/* RECENT GALLERY PREVIEW SECTION */}
       <section className="py-20 bg-paper border-b border-mutedBorder">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <ScrollReveal animation="fade-up" className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-2">
                 Impact In Pictures
@@ -264,7 +269,7 @@ export default async function HomePage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </Link>
-          </div>
+          </ScrollReveal>
 
           {/* Interactive Lightbox-enabled Gallery Grid */}
           <HomeGalleryPreview images={recentImages} />
@@ -275,7 +280,7 @@ export default async function HomePage() {
       <section className="py-24 bg-gradient-to-r from-primary via-primary-hover to-primary text-white relative overflow-hidden shadow-2xl">
         <EmbraceMotif variant="hero-bg" className="left-10 top-2 opacity-15" />
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+        <ScrollReveal animation="scale-up" duration={0.9} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
             {content.cta_banner_title}
           </h2>
@@ -296,7 +301,7 @@ export default async function HomePage() {
               Read About SCWOP
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );
