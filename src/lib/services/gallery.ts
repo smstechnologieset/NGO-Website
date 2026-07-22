@@ -25,7 +25,7 @@ export const DEFAULT_GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "default-3",
     image_url:
-      "https://images.unsplash.com/photo-1581579438747-1dc8d1e05842?q=80&w=1200&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop",
     title: "Older Adults Wellness & Social Circle",
     description:
       "Weekly health checkups, physical wellness activities, and social gatherings honoring our senior community members.",
