@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #FBF7F1;
+  --color-ink: #22302A;
+  --color-primary: #2F6F5E;
+  --color-primary-hover: #235447;
+  --color-primary-light: #EAEFEA;
+  --color-accent: #E1A94C;
+  --color-accent-hover: #CD9539;
+  --color-accent-light: #FCF6EB;
+  --color-secondary-accent: #C97B8B;
+  --color-secondary-accent-light: #FAF0F2;
+  --color-muted-border: #DCD3C4;
+
+  --font-display: var(--font-fraunces), serif;
+  --font-body: var(--font-work-sans), sans-serif;
+}
+
+:root {
+  --background: #FBF7F1;
+  --foreground: #22302A;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-work-sans), 'Work Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible focus ring style throughout the site */
+*:focus-visible {
+  outline: 2px solid #2F6F5E;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
