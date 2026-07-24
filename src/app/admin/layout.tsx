@@ -62,7 +62,6 @@ export default function AdminLayout({
   const handleSignOut = async () => {
     const supabase = createClient();
     await supabase.auth.signOut();
-    document.cookie = "scwop_demo_admin=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     router.push("/admin/login");
     router.refresh();
   };

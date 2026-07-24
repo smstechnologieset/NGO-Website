@@ -37,18 +37,6 @@ function LoginFormContent() {
       });
 
       if (error) {
-        // Fallback demo login handling for testing when Supabase credentials are placeholder
-        if (
-          process.env.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder") ||
-          error.message.includes("fetch") ||
-          error.message.includes("Invalid login credentials")
-        ) {
-          // Set mock session cookie for local preview
-          document.cookie = `scwop_demo_admin=${encodeURIComponent(email)}; path=/; max-age=86400`;
-          router.push("/admin");
-          return;
-        }
-
         setErrorMsg(error.message);
         setLoading(false);
         return;
@@ -58,6 +46,9 @@ function LoginFormContent() {
         const redirectTo = searchParams.get("redirectTo") || "/admin";
         router.push(redirectTo);
         router.refresh();
+      } else {
+        setErrorMsg("Login succeeded but no session was returned. Please try again.");
+        setLoading(false);
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "An unexpected authentication error occurred.";
@@ -107,7 +98,7 @@ function LoginFormContent() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="scwop2019@gmail.com"
+            placeholder="example@gmail.com"
             className="w-full px-4 py-3 rounded-xl border border-mutedBorder bg-paper/50 focus:bg-white text-ink text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary"
           />
         </div>
@@ -132,7 +123,7 @@ function LoginFormContent() {
           disabled={loading}
           className="btn-shimmer w-full py-3.5 px-6 rounded-full font-semibold bg-primary text-white hover:bg-primary-hover disabled:opacity-60 transition-all shadow-md text-sm focus-visible:ring-2 focus-visible:ring-primary"
         >
-          {loading ? "Authenticating..." : "Sign In to Admin Dashboard"}
+          {loading ? "Authenticating..." : "Sign In"}
         </button>
       </form>
 
