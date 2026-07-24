@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
 
@@ -14,38 +15,37 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-ink text-paper pt-16 pb-12 mt-auto border-t border-ink/20">
+    <footer className="bg-primary text-paper pt-16 pb-12 mt-auto border-t border-primary/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-paper/15">
           {/* Brand & Purpose Column */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-paper/10 border border-paper/20">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 28 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="14" cy="14" r="12.5" stroke="#C97B8B" strokeWidth="1.2" />
-                  <circle cx="14" cy="14" r="8" stroke="#E1A94C" strokeWidth="1.5" />
-                  <circle cx="14" cy="14" r="4" fill="#2F6F5E" />
-                </svg>
+            <div className="flex items-center gap-3.5">
+              <div className="relative flex items-center justify-center w-12 h-12 rounded-full overflow-hidden border-2 border-white/40 shadow-sm">
+                <Image
+                  src="/Logo.png"
+                  alt="SCWOP Logo"
+                  width={48}
+                  height={48}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <span className="font-display text-2xl font-bold text-paper">
-                SCWOP
-              </span>
+              <div>
+                <span className="font-display text-2xl font-bold text-paper block leading-none">
+                  SCWOP
+                </span>
+                <span className="text-[10px] uppercase tracking-wider font-semibold text-accent block mt-1">
+                  NGO Ethiopia
+                </span>
+              </div>
             </div>
-            <p className="text-sm text-paper/75 leading-relaxed">
-              Support for Children, Women and Older People (SCWOP) is dedicated
-              to fostering resilient, caring communities where every generation
-              receives protection, empowerment, and respect.
+            <p className="text-sm text-paper/80 leading-relaxed">
+              Support for Children, Women and Older People (SCWOP) is a robust organization driving sustainable transformation and bringing lasting solutions for children, women, and the elderly.
             </p>
             <div className="pt-2">
               <EmbraceMotif variant="bullet" className="mr-2" />
-              <span className="text-xs text-accent font-medium uppercase tracking-wider">
-                Intergenerational Care & Advocacy
+              <span className="text-xs text-accent font-semibold uppercase tracking-wider">
+                Humanitarianism • Integrity • Equality
               </span>
             </div>
           </div>
@@ -66,7 +66,7 @@ export default function Footer() {
                   href="/about"
                   className="hover:text-accent transition-colors"
                 >
-                  About Our Mission
+                  About Our Vision & Core Values
                 </Link>
               </li>
               <li>
@@ -74,7 +74,7 @@ export default function Footer() {
                   href="/gallery"
                   className="hover:text-accent transition-colors"
                 >
-                  Photo Gallery
+                  Photo Gallery & Field Stories
                 </Link>
               </li>
               <li>
@@ -96,27 +96,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Core Focus Areas */}
+          {/* Key Interventions */}
           <div>
             <h3 className="font-display text-lg font-semibold text-paper mb-4">
-              Our Key Pillars
+              Key Project Interventions
             </h3>
             <ul className="space-y-2.5 text-sm text-paper/80">
               <li className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Child Education & Protection
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondaryAccent" />
-                Women Empowerment & Micro-Grants
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                Elderly Health & Dignified Care
+                Monthly Cash Transfers (1,100 Elders & 130 OVCs)
               </li>
               <li className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Intergenerational Community Centers
+                Healthcare & Medication Access
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Home Renovation & Rehabilitation
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Income Generating Activities (IGA)
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Food & Seasonal Clothing Supply
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Sanitation, Hygiene & Psychosocial Support
               </li>
             </ul>
           </div>
@@ -124,7 +132,7 @@ export default function Footer() {
           {/* Contact Snippet */}
           <div>
             <h3 className="font-display text-lg font-semibold text-paper mb-4">
-              Contact Snippet
+              Office Contact
             </h3>
             <div className="space-y-3 text-sm text-paper/80">
               <p className="flex items-start gap-2.5">
@@ -146,7 +154,7 @@ export default function Footer() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>123 Harmony Way, Community Care District</span>
+                <span>Limi kura woreda 10 around Semit Fiyel Bet</span>
               </p>
               <p className="flex items-center gap-2.5">
                 <svg
@@ -162,11 +170,11 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span>info@scwop.org</span>
+                <span>scwop2019@gmail.com</span>
               </p>
-              <p className="flex items-center gap-2.5">
+              <p className="flex items-start gap-2.5">
                 <svg
-                  className="w-5 h-5 text-accent flex-shrink-0"
+                  className="w-5 h-5 text-accent flex-shrink-0 mt-0.5"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -178,7 +186,7 @@ export default function Footer() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span>+1 (555) 234-5678</span>
+                <span>+251 11 662 8613 / 14<br />+251 91 140 6118</span>
               </p>
             </div>
           </div>
@@ -187,8 +195,7 @@ export default function Footer() {
         {/* Bottom copyright & attribution */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-paper/60">
           <p>
-            © {new Date().getFullYear()} SCWOP (Support for Children, Women and
-            Older People). All rights reserved.
+            © {new Date().getFullYear()} SCWOP (Support for Children, Women and Older People). All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/contact" className="hover:text-paper transition-colors">

@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #FBF7F1;
-  --color-ink: #22302A;
-  --color-primary: #2F6F5E;
-  --color-primary-hover: #235447;
-  --color-primary-light: #EAEFEA;
-  --color-accent: #E1A94C;
-  --color-accent-hover: #CD9539;
-  --color-accent-light: #FCF6EB;
-  --color-secondary-accent: #C97B8B;
-  --color-secondary-accent-light: #FAF0F2;
-  --color-muted-border: #DCD3C4;
+  --color-paper: #F0F5F9;
+  --color-ink: #0A192F;
+  --color-primary: #0B284C;
+  --color-primary-hover: #061B35;
+  --color-primary-light: #E0EBF5;
+  --color-accent: #0284C7;
+  --color-accent-hover: #0369A1;
+  --color-accent-light: #E0F2FE;
+  --color-secondary-accent: #0077B6;
+  --color-secondary-accent-light: #EBF8FF;
+  --color-muted-border: #CBD5E1;
 
   --font-display: var(--font-fraunces), serif;
   --font-body: var(--font-work-sans), sans-serif;
 }
 
 :root {
-  --background: #FBF7F1;
-  --foreground: #22302A;
+  --background: #F0F5F9;
+  --foreground: #0A192F;
 }
 
 body {
@@ -86,10 +86,10 @@ body {
 
 /* Glassmorphism & Micro-Interaction Styling */
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(220, 211, 196, 0.7);
+  border: 1px solid rgba(203, 213, 225, 0.8);
 }
 
 .glass-card-hover {
@@ -98,8 +98,8 @@ body {
 
 .glass-card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 30px -10px rgba(34, 48, 42, 0.08), 0 10px 15px -5px rgba(47, 111, 94, 0.04);
-  border-color: rgba(47, 111, 94, 0.4);
+  box-shadow: 0 20px 30px -10px rgba(11, 40, 76, 0.12), 0 10px 15px -5px rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.4);
 }
 
 /* Shimmer Button Effect */
@@ -112,7 +112,7 @@ body {
   content: '';
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform: translateX(-100%);
 }
 
@@ -120,22 +120,22 @@ body {
   animation: shimmer 1.2s ease-in-out infinite;
 }
 
-/* Typography Gradient Utilities */
+/* Typography Gradient Utilities based on Water Blue & Deep Navy */
 .text-gradient-primary {
-  background: linear-gradient(135deg, #22302A 30%, #2F6F5E 100%);
+  background: linear-gradient(135deg, #0A192F 20%, #0B284C 70%, #0284C7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-accent {
-  background: linear-gradient(135deg, #2F6F5E 0%, #E1A94C 100%);
+  background: linear-gradient(135deg, #0B284C 0%, #0284C7 50%, #0077B6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Accessible Focus Ring */
 *:focus-visible {
-  outline: 2px solid #2F6F5E;
+  outline: 2px solid #0284C7;
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -145,14 +145,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FBF7F1;
+  background: #F0F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DCD3C4;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2F6F5E;
+  background: #0284C7;
 }
 
 /* Reduced Motion Safety */

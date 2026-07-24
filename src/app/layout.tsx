@@ -22,23 +22,29 @@ export const metadata: Metadata = {
     template: "%s | SCWOP NGO",
   },
   description:
-    "SCWOP is a non-profit organization dedicated to empowering and improving the lives of children, women, and older people through intergenerational care, community advocacy, and essential support services.",
+    "SCWOP drives sustainable transformation and lasting solutions for children, women, and the elderly through cash transfers, healthcare, home renovation, and community empowerment.",
   keywords: [
-    "NGO",
+    "NGO Ethiopia",
     "SCWOP",
-    "Support for Children",
-    "Women Empowerment",
-    "Older People Care",
-    "Intergenerational Support",
-    "Community Advocacy",
+    "Support for Children Women and Older People",
+    "OVC Cash Transfers Ethiopia",
+    "Elder Care Ethiopia",
+    "Women Income Generating Activities",
+    "Community Healthcare Outreach",
   ],
+  icons: {
+    icon: "/Logo.png",
+    shortcut: "/Logo.ico",
+    apple: "/Logo.png",
+  },
   openGraph: {
     title: "SCWOP | Support for Children, Women and Older People",
     description:
-      "Empowering generations through community care, education, and advocacy.",
+      "Driving sustainable transformation and positive community impact in Ethiopia.",
     siteName: "SCWOP NGO",
     locale: "en_US",
     type: "website",
+    images: [{ url: "/Logo.png" }],
   },
 };
 

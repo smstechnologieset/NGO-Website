@@ -1,40 +1,40 @@
 import { createClient } from "@/lib/supabase/client";
 
 export const DEFAULT_SITE_CONTENT: Record<string, string> = {
-  hero_title: "Supporting Children, Empowering Women, Honoring Elders",
+  hero_title: "Support for Children, Women and Older People (SCWOP)",
   hero_tagline:
-    "SCWOP builds intergenerational support systems where children thrive, women lead, and older adults are cherished with dignity.",
-  hero_cta_primary: "See Our Work",
+    "Driving sustainable transformation and bringing lasting solutions for children, women, and the elderly through holistic care, strategic partnerships, and community empowerment.",
+  hero_cta_primary: "Explore Our Programs",
   hero_cta_secondary: "Get Involved",
 
-  stat_1_number: "12,500+",
-  stat_1_label: "Children & Families Supported",
-  stat_2_number: "45+",
-  stat_2_label: "Community Empowerment Centers",
-  stat_3_number: "3,200+",
-  stat_3_label: "Elders Receiving Care & Dignity",
-  stat_4_number: "98%",
-  stat_4_label: "Direct Program Impact Rate",
+  stat_1_number: "1,100+",
+  stat_1_label: "Elders Provided Monthly Cash Transfers",
+  stat_2_number: "130+",
+  stat_2_label: "Orphan & Vulnerable Children (OVC) Supported",
+  stat_3_number: "6+",
+  stat_3_label: "Key Project Interventions Active",
+  stat_4_number: "100%",
+  stat_4_label: "Dignified & Non-Discriminatory Service",
 
-  mission_excerpt_title: "Our Intergenerational Commitment",
+  mission_excerpt_title: "Our Holistic Community Mandate",
   mission_excerpt_body:
-    "At SCWOP (Support for Children, Women and Older People), we believe that no generation stands alone. By surrounding children with educational stability, equipping women with economic tools, and providing older adults with health, companionship, and respect, we weave a resilient safety net for the whole community.",
+    "SCWOP works hand in hand with local communities, government bodies, and key stakeholders to deliver direct relief—from healthcare and cash transfers to home repairs and income-generating seed capital—ensuring children, mothers, and elders thrive with dignity.",
 
-  cta_banner_title: "Join Us in Creating Lasting Community Impact",
+  cta_banner_title: "Join SCWOP in Driving Sustainable Community Transformation",
   cta_banner_subtitle:
-    "Whether through partnership, volunteering, or spreading awareness, your support transforms lives across generations.",
+    "Partner with us to protect vulnerable children, empower women, and honor our senior citizens across every community we serve.",
 
   about_mission:
-    "To protect rights, expand opportunities, and enhance wellbeing for children, women, and older people through integrated community services and advocacy.",
+    "To bring about lasting solutions for children, women, and the elderly by providing holistic support and addressing their specific needs, through strategic partnerships with the community, government, and relevant stakeholders.",
   about_vision:
-    "A compassionate society where every child is nurtured, every woman is empowered, and every older person lives with dignity and care.",
+    "To be a robust and impactful organization that drives sustainable and positive transformation in the lives of the community.",
   about_founding_story:
-    "Founded with a clear purpose, SCWOP began as a grassroots movement addressing the neglected needs of vulnerable households. Recognizing that children, mothers, and grandparents form an interdependent circle of care, our founders established holistic community centers that serve all three generations under one roof.",
+    "Support for Children, Women and Older People (SCWOP) was established to address the critical gaps in social protection for vulnerable households. Operating under the core values of Humanitarianism, Transparency, Integrity, and Gender Equality, SCWOP delivers essential cash transfers, healthcare, home rehabilitation, food supplies, and psychosocial support directly to families in need.",
 
-  contact_address: "123 Harmony Way, Community Care District, Cityville",
-  contact_phone: "+1 (555) 234-5678 / +1 (555) 876-5432",
-  contact_email: "info@scwop.org / contact@scwop.org",
-  contact_hours: "Monday - Friday: 8:30 AM - 5:00 PM",
+  contact_address: "Limi kura woreda 10 around Semit Fiyel Bet, Addis Ababa",
+  contact_phone: "+251 11 662 8613 / +251 11 662 8614 / +251 91 140 6118",
+  contact_email: "scwop2019@gmail.com",
+  contact_hours: "Monday - Friday: 8:30 AM - 5:30 PM",
 };
 
 export async function getAllSiteContent(): Promise<Record<string, string>> {

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
@@ -73,18 +74,20 @@ export default function AdminLayout({
         <div className="space-y-8">
           {/* Admin Header Branding */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 border border-primary/20">
-              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="12.5" stroke="#C97B8B" strokeWidth="1.2" />
-                <circle cx="14" cy="14" r="8" stroke="#E1A94C" strokeWidth="1.5" />
-                <circle cx="14" cy="14" r="4" fill="#2F6F5E" />
-              </svg>
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-full overflow-hidden border border-primary/20 shadow-xs">
+              <Image
+                src="/Logo.png"
+                alt="SCWOP Logo"
+                width={40}
+                height={40}
+                className="object-cover w-full h-full"
+              />
             </div>
             <div>
               <span className="font-display text-xl font-bold text-ink block leading-none">
                 SCWOP Admin
               </span>
-              <span className="text-[10px] uppercase font-semibold text-primary block mt-1">
+              <span className="text-[10px] uppercase font-semibold text-accent block mt-1">
                 Content Dashboard
               </span>
             </div>
@@ -104,8 +107,8 @@ export default function AdminLayout({
                   href={item.href}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-primary text-white shadow-sm"
-                      : "text-ink hover:bg-paper hover:text-primary"
+                      ? "bg-primary text-white shadow-sm font-semibold"
+                      : "text-ink hover:bg-paper hover:text-accent"
                   }`}
                 >
                   {item.icon}
@@ -129,7 +132,7 @@ export default function AdminLayout({
           </Link>
           <button
             onClick={handleSignOut}
-            className="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-secondaryAccent hover:bg-secondaryAccent/10 transition-colors"
+            className="w-full flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium text-accent hover:bg-accent/10 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -142,6 +145,9 @@ export default function AdminLayout({
       {/* Mobile Topbar */}
       <div className="md:hidden bg-white border-b border-mutedBorder px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-primary/20">
+            <Image src="/Logo.png" alt="SCWOP Logo" width={32} height={32} />
+          </div>
           <span className="font-display text-lg font-bold text-ink">SCWOP Admin</span>
         </div>
         <button
@@ -169,7 +175,7 @@ export default function AdminLayout({
           ))}
           <button
             onClick={handleSignOut}
-            className="w-full flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-secondaryAccent hover:bg-secondaryAccent/10"
+            className="w-full flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-accent hover:bg-accent/10"
           >
             Sign Out
           </button>

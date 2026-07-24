@@ -9,24 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#FBF7F1",
-        ink: "#22302A",
+        paper: "#F0F5F9",
+        ink: "#0A192F",
         primary: {
-          DEFAULT: "#2F6F5E",
-          hover: "#235447",
-          light: "#EAEFEA",
+          DEFAULT: "#0B284C",
+          hover: "#061B35",
+          light: "#E0EBF5",
         },
         accent: {
-          DEFAULT: "#E1A94C",
-          hover: "#CD9539",
-          light: "#FCF6EB",
+          DEFAULT: "#0284C7",
+          hover: "#0369A1",
+          light: "#E0F2FE",
         },
         secondaryAccent: {
-          DEFAULT: "#C97B8B",
-          hover: "#B46575",
-          light: "#FAF0F2",
+          DEFAULT: "#0077B6",
+          hover: "#023E8A",
+          light: "#EBF8FF",
         },
-        mutedBorder: "#DCD3C4",
+        mutedBorder: "#CBD5E1",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "serif"],

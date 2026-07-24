@@ -43,22 +43,22 @@ export default async function HomePage() {
                 <div className="flex flex-wrap items-center gap-3 pt-1">
                   <span className="px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                    Children's Protection
+                    Children's Support & OVC
                   </span>
                   <span className="px-3.5 py-1.5 rounded-full bg-accent/20 border border-accent/40 text-ink text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    Women's Empowerment
+                    Women's Empowerment & IGA
                   </span>
                   <span className="px-3.5 py-1.5 rounded-full bg-secondaryAccent/20 border border-secondaryAccent/30 text-ink text-xs font-semibold flex items-center gap-1.5 hover:scale-105 transition-transform cursor-default">
                     <span className="w-1.5 h-1.5 rounded-full bg-secondaryAccent" />
-                    Elders' Dignity & Care
+                    Elders' Care & Cash Transfers
                   </span>
                 </div>
 
                 {/* CTAs */}
                 <div className="pt-3 flex flex-wrap items-center gap-4">
                   <Link
-                    href="/gallery"
+                    href="/about"
                     className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-primary text-white hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base inline-flex items-center gap-3 group"
                   >
                     <span>{content.hero_cta_primary}</span>
@@ -79,7 +79,7 @@ export default async function HomePage() {
 
                   <Link
                     href="/contact"
-                    className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-accent text-ink hover:bg-accent-hover transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base"
+                    className="btn-shimmer px-8 py-4 rounded-full font-semibold bg-accent text-white hover:bg-accent-hover transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 focus-visible:ring-2 focus-visible:ring-primary text-base"
                   >
                     {content.hero_cta_secondary}
                   </Link>
@@ -97,10 +97,10 @@ export default async function HomePage() {
                   </div>
                   <div>
                     <span className="text-xs font-bold text-ink block leading-none">
-                      Community Safety Net
+                      Non-Discriminatory Care
                     </span>
                     <span className="text-[10px] font-medium text-primary block mt-0.5">
-                      100% Direct Impact
+                      Humanitarianism & Equality
                     </span>
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export default async function HomePage() {
 
             {/* Stat Card 2 */}
             <div className="glass-card glass-card-hover p-8 rounded-3xl relative overflow-hidden group">
-              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center text-ink mb-5 group-hover:scale-110 group-hover:bg-accent transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center text-ink mb-5 group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0a2 2 0 01-2-2V8a2 2 0 012-2h2a2 2 0 012 2v11a2 2 0 01-2 2z" />
                 </svg>
@@ -203,6 +203,133 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* KEY PROJECT INTERVENTIONS SECTION */}
+      <section className="py-24 bg-white border-b border-mutedBorder">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-2">
+              Action In The Field
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+              Key Project Interventions & Activities
+            </h2>
+            <p className="text-base text-ink/75 mt-4 font-body">
+              Targeted humanitarian programs designed to restore dignity, improve health, and provide economic self-reliance across our community.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal animation="stagger-children" stagger={0.12} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* 1. Monthly Cash Transfers */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                  01
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink">
+                  Monthly Cash Transfers
+                </h3>
+                <p className="text-sm text-ink/80 leading-relaxed font-body">
+                  Providing direct monthly financial aid to <strong>1,100 Elders</strong> and <strong>130 Orphan & Vulnerable Children (OVC)</strong> to cover vital basic living expenses.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-primary">
+                Direct Relief • 1,230 Beneficiaries
+              </div>
+            </div>
+
+            {/* 2. Healthcare Services */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center text-accent font-bold text-lg">
+                  02
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink">
+                  Healthcare Services & Medication
+                </h3>
+                <p className="text-sm text-ink/80 leading-relaxed font-body">
+                  Facilitating access to essential medical treatments, routine clinical check-ups, and ongoing prescription medications for vulnerable individuals.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-accent">
+                Medical Care & Wellness
+              </div>
+            </div>
+
+            {/* 3. Home Renovation and Repairs */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent font-bold text-lg">
+                  03
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink">
+                  Home Renovation & Repairs
+                </h3>
+                <p className="text-sm text-ink/80 leading-relaxed font-body">
+                  Rehabilitating dilapidated and unsafe housing to guarantee safe, hygienic, and dignified living conditions for impoverished families and seniors.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-secondaryAccent">
+                Shelter Rehabilitation
+              </div>
+            </div>
+
+            {/* 4. Income Generating Activities (IGA) */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center text-accent font-bold text-lg">
+                  04
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink">
+                  Income Generating Activities (IGA)
+                </h3>
+                <p className="text-sm text-ink/80 leading-relaxed font-body">
+                  Empowering active elderly individuals and immediate caregivers with seed capital and practical business training to foster sustainable self-reliance.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-accent">
+                Livelihood & Economic Empowerment
+              </div>
+            </div>
+
+            {/* 5. Food and Clothing Supply */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                  05
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink">
+                  Food & Clothing Supply
+                </h3>
+                <p className="text-sm text-ink/80 leading-relaxed font-body">
+                  Regular, structured distribution of nutritious food packages and seasonal clothing items to ensure basic human needs are consistently met.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-primary">
+                Nutritional & Material Support
+              </div>
+            </div>
+
+            {/* 6. Sanitation, Hygiene & Psychosocial Support */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent font-bold text-lg">
+                  06
+                </div>
+                <h3 className="font-display text-xl font-bold text-ink">
+                  Sanitation & Home Visits
+                </h3>
+                <p className="text-sm text-ink/80 leading-relaxed font-body">
+                  Routine home visits by social workers and volunteers providing hygiene supplies, psychosocial support, medical follow-ups, and companionship for bedridden elders.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-secondaryAccent">
+                Home Visits & Companion Care
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* MISSION EXCERPT SECTION */}
       <section className="py-24 bg-gradient-to-br from-paper via-accent/5 to-paper relative overflow-hidden">
         <ScrollReveal animation="fade-up" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -218,13 +345,13 @@ export default async function HomePage() {
 
           <Link
             href="/about"
-            className="inline-flex items-center gap-2.5 font-semibold text-primary hover:text-primary-hover text-lg group focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1 transition-all"
+            className="inline-flex items-center gap-2.5 font-semibold text-primary hover:text-accent text-lg group focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1 transition-all"
           >
-            <span className="border-b-2 border-primary/30 group-hover:border-primary transition-colors">
-              Learn more about our history & governance
+            <span className="border-b-2 border-primary/30 group-hover:border-accent transition-colors">
+              Learn more about our vision & core values
             </span>
             <svg
-              className="w-5 h-5 group-hover:translate-x-1.5 transition-transform"
+              className="w-5 h-5 group-hover:translate-x-1.5 transition-transform text-accent"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -247,7 +374,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up" className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-primary block mb-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-2">
                 Impact In Pictures
               </span>
               <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
@@ -256,7 +383,7 @@ export default async function HomePage() {
             </div>
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 font-semibold text-primary hover:text-primary-hover text-base group"
+              className="inline-flex items-center gap-2 font-semibold text-primary hover:text-accent text-base group"
             >
               Explore Full Gallery ({galleryImages.length} items)
               <svg
@@ -290,7 +417,7 @@ export default async function HomePage() {
           <div className="flex flex-wrap items-center justify-center gap-5 pt-2">
             <Link
               href="/contact"
-              className="btn-shimmer px-9 py-4 rounded-full font-semibold bg-accent text-ink hover:bg-accent-hover transition-all duration-300 shadow-xl text-base focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-0.5"
+              className="btn-shimmer px-9 py-4 rounded-full font-semibold bg-accent text-white hover:bg-accent-hover transition-all duration-300 shadow-xl text-base focus-visible:ring-2 focus-visible:ring-white hover:-translate-y-0.5"
             >
               Contact Our Team
             </Link>

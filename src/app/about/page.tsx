@@ -9,7 +9,7 @@ import { getAllSiteContent } from "@/lib/services/content";
 export const metadata = {
   title: "About Us | SCWOP NGO",
   description:
-    "Learn about SCWOP's history, mission, vision, and strategic goals for children, women, and older people.",
+    "Learn about SCWOP's vision, mission, core values (Humanitarianism, Transparency, Integrity, Gender Equality), and history.",
 };
 
 export const revalidate = 60;
@@ -31,13 +31,11 @@ export default async function AboutPage() {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-ink mb-6 leading-tight">
-              Nurturing Generations, Transforming Communities
+              Support for Children, Women and Older People (SCWOP)
             </h1>
 
             <p className="text-lg sm:text-xl text-ink/80 font-body leading-relaxed max-w-3xl mx-auto">
-              SCWOP (Support for Children, Women and Older People) is a registered
-              non-governmental organization committed to creating interconnected safety
-              nets for society’s most vital yet often vulnerable populations.
+              A robust and impactful organization driving sustainable and positive transformation in the lives of children, women, and elders through holistic care and strategic community partnerships.
             </p>
           </ScrollReveal>
         </div>
@@ -47,6 +45,29 @@ export default async function AboutPage() {
       <section className="py-20 bg-paper border-b border-mutedBorder">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="stagger-children" stagger={0.2} className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {/* Vision Card */}
+            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
+              <div className="space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center text-accent">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink">
+                  Our Vision
+                </h2>
+                <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
+                  &ldquo;{content.about_vision}&rdquo;
+                </p>
+              </div>
+
+              <div className="pt-6 mt-6 border-t border-mutedBorder/50 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
+                <EmbraceMotif variant="bullet" />
+                Sustainable Community Transformation
+              </div>
+            </div>
+
             {/* Mission Card */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
               <div className="space-y-4">
@@ -59,128 +80,85 @@ export default async function AboutPage() {
                   Our Mission
                 </h2>
                 <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
-                  {content.about_mission}
+                  &ldquo;{content.about_mission}&rdquo;
                 </p>
               </div>
 
               <div className="pt-6 mt-6 border-t border-mutedBorder/50 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-primary">
                 <EmbraceMotif variant="bullet" />
-                Intergenerational Support Action
-              </div>
-            </div>
-
-            {/* Vision Card */}
-            <div className="p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-sm relative overflow-hidden flex flex-col justify-between hover:shadow-xl transition-shadow duration-300">
-              <div className="space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center text-ink">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                </div>
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink">
-                  Our Vision
-                </h2>
-                <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
-                  {content.about_vision}
-                </p>
-              </div>
-
-              <div className="pt-6 mt-6 border-t border-mutedBorder/50 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
-                <EmbraceMotif variant="bullet" />
-                Sustainable Future & Human Dignity
+                Holistic Support & Strategic Partnerships
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* CORE OBJECTIVES SECTION */}
-      <section className="py-20 bg-gradient-to-b from-paper to-accent/5 border-b border-mutedBorder">
+      {/* CORE VALUES SECTION */}
+      <section className="py-24 bg-white border-b border-mutedBorder">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-semibold uppercase tracking-wider text-secondaryAccent block mb-2">
-              Strategic Focus
+          <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-accent block">
+              Ethical Standards & Principles
             </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
-              Core Strategic Objectives
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+              Our Core Values
             </h2>
-            <p className="text-base text-ink/75 mt-3">
-              Designed around the 3 pillars of community care: youth development, women's self-reliance, and senior wellbeing.
+            <p className="text-base text-ink/80 leading-relaxed font-body">
+              Our organization respects human equality without discrimination based on gender, race, ethnicity, or religion, and upholds the following core principles:
             </p>
           </ScrollReveal>
 
-          <ScrollReveal animation="stagger-children" stagger={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Objective 1: Children */}
-            <div className="p-8 rounded-3xl bg-white border border-mutedBorder shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 font-display font-bold text-xl">
+          <ScrollReveal animation="stagger-children" stagger={0.15} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Value 1 */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
                 01
               </div>
-              <h3 className="font-display text-xl font-bold text-ink mb-3">
-                Child Development & Education
+              <h3 className="font-display text-xl font-bold text-ink">
+                Humanitarianism
               </h3>
-              <ul className="space-y-3 text-sm text-ink/80 font-body">
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Ensure access to quality early childhood learning and nutritional support.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Protect children against neglect, exploitation, and educational disruption.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Provide safe recreational and creative learning spaces.</span>
-                </li>
-              </ul>
+              <p className="text-sm text-ink/80 leading-relaxed font-body">
+                Serving individuals with dignity and placing human well-being above all.
+              </p>
             </div>
 
-            {/* Objective 2: Women */}
-            <div className="p-8 rounded-3xl bg-white border border-mutedBorder shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center text-ink mb-6 font-display font-bold text-xl">
+            {/* Value 2 */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center text-accent font-bold text-xl">
                 02
               </div>
-              <h3 className="font-display text-xl font-bold text-ink mb-3">
-                Women's Economic Rights & Health
+              <h3 className="font-display text-xl font-bold text-ink">
+                Transparency & Accountability
               </h3>
-              <ul className="space-y-3 text-sm text-ink/80 font-body">
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Facilitate vocational skills, micro-grants, and financial literacy.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Promote maternal healthcare awareness, hygiene, and reproductive wellness.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Advocate against gender-based violence and foster community leadership.</span>
-                </li>
-              </ul>
+              <p className="text-sm text-ink/80 leading-relaxed font-body">
+                Operating with openness and taking full responsibility for our actions and outcomes.
+              </p>
             </div>
 
-            {/* Objective 3: Older People */}
-            <div className="p-8 rounded-3xl bg-white border border-mutedBorder shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-secondaryAccent/20 flex items-center justify-center text-ink mb-6 font-display font-bold text-xl">
+            {/* Value 3 */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent font-bold text-xl">
                 03
               </div>
-              <h3 className="font-display text-xl font-bold text-ink mb-3">
-                Senior Care & Dignified Aging
+              <h3 className="font-display text-xl font-bold text-ink">
+                Integrity
               </h3>
-              <ul className="space-y-3 text-sm text-ink/80 font-body">
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Provide routine geriatric health checks, mobility aids, and home visits.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Combat social isolation through intergenerational circles and companionship.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <EmbraceMotif variant="bullet" className="mt-1" />
-                  <span>Safeguard elderly rights and heritage preservation in local communities.</span>
-                </li>
-              </ul>
+              <p className="text-sm text-ink/80 leading-relaxed font-body">
+                Ensuring honesty, trustworthiness, and ethical conduct in all operations and resource management.
+              </p>
+            </div>
+
+            {/* Value 4 */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                04
+              </div>
+              <h3 className="font-display text-xl font-bold text-ink">
+                Gender Equality
+              </h3>
+              <p className="text-sm text-ink/80 leading-relaxed font-body">
+                Promoting fairness, inclusivity, and equal opportunities across all programs and interventions.
+              </p>
             </div>
           </ScrollReveal>
         </div>
@@ -195,7 +173,7 @@ export default async function AboutPage() {
                 <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full">
                   <Image
                     src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-                    alt="SCWOP founding gathering and community elders"
+                    alt="SCWOP community elders and staff"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -210,17 +188,17 @@ export default async function AboutPage() {
                   Our Journey & Roots
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
-                  Founding Story & History
+                  Organization Background & History
                 </h2>
                 <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
                   {content.about_founding_story}
                 </p>
                 <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20">
                   <blockquote className="font-display text-lg italic text-ink">
-                    &ldquo;When a grandmother is cared for, a mother is supported, and a child is educated, the entire village flourishes.&rdquo;
+                    &ldquo;Serving individuals with dignity and placing human well-being above all.&rdquo;
                   </blockquote>
                   <span className="text-xs font-semibold text-primary block mt-3 uppercase tracking-wider">
-                    — SCWOP Founding Principle
+                    — SCWOP Humanitarian Commitment
                   </span>
                 </div>
               </ScrollReveal>
@@ -232,18 +210,18 @@ export default async function AboutPage() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="py-16 bg-ink text-paper">
+      <section className="py-16 bg-primary text-paper">
         <ScrollReveal animation="fade-up" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
           <h2 className="font-display text-3xl font-bold text-paper">
             Partner with SCWOP Today
           </h2>
           <p className="text-base text-paper/80 font-body max-w-2xl mx-auto">
-            Whether you represent a community organization, a donor entity, or an eager volunteer, your collaboration strengthens our intergenerational support network.
+            Whether you represent a community organization, a government entity, or a donor partner, your collaboration strengthens our impact across vulnerable households.
           </p>
           <div className="pt-2">
             <Link
               href="/contact"
-              className="btn-shimmer px-8 py-3.5 rounded-full font-medium bg-accent text-ink hover:bg-accent-hover transition-colors shadow-md text-base inline-block focus-visible:ring-2 focus-visible:ring-white"
+              className="btn-shimmer px-8 py-3.5 rounded-full font-medium bg-accent text-white hover:bg-accent-hover transition-colors shadow-md text-base inline-block focus-visible:ring-2 focus-visible:ring-white"
             >
               Get in Touch With Us
             </Link>

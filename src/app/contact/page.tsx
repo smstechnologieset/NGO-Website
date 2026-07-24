@@ -8,7 +8,7 @@ import ContactForm from "./ContactForm";
 export const metadata = {
   title: "Contact Us | SCWOP NGO",
   description:
-    "Get in touch with SCWOP NGO. Find our address, phone numbers, email, and embedded map or send us a message.",
+    "Get in touch with SCWOP NGO in Addis Ababa. Find our office address, phone numbers, email, location map, or send us a direct message.",
 };
 
 export const revalidate = 60;
@@ -30,11 +30,11 @@ export default async function ContactPage() {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl font-bold text-ink mb-4 leading-tight">
-              Get in Touch With Our Team
+              Get in Touch With Our Office
             </h1>
 
             <p className="text-lg text-ink/80 font-body leading-relaxed max-w-2xl mx-auto">
-              Whether you want to partner, inquire about community services, or volunteer, we welcome your communication.
+              Whether you want to partner, inquire about our community programs, or volunteer, we welcome your communication.
             </p>
           </ScrollReveal>
         </div>
@@ -62,7 +62,7 @@ export default async function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-1">
-                        Main Address
+                        Main Office Address
                       </h3>
                       <p className="text-base text-ink font-body font-medium">
                         {content.contact_address}
@@ -72,16 +72,16 @@ export default async function ContactPage() {
 
                   {/* Phone */}
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center text-ink flex-shrink-0 mt-1">
+                    <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center text-accent flex-shrink-0 mt-1">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                     </div>
                     <div>
                       <h3 className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-1">
-                        Telephone / WhatsApp
+                        Telephone Lines
                       </h3>
-                      <p className="text-base text-ink font-body font-medium">
+                      <p className="text-base text-ink font-body font-medium whitespace-pre-line">
                         {content.contact_phone}
                       </p>
                     </div>
@@ -89,7 +89,7 @@ export default async function ContactPage() {
 
                   {/* Email */}
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-secondaryAccent/20 flex items-center justify-center text-ink flex-shrink-0 mt-1">
+                    <div className="w-10 h-10 rounded-xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent flex-shrink-0 mt-1">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
@@ -113,7 +113,7 @@ export default async function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-xs font-semibold text-ink/50 uppercase tracking-wider mb-1">
-                        Office Hours
+                        Working Hours
                       </h3>
                       <p className="text-base text-ink font-body font-medium">
                         {content.contact_hours}
@@ -126,7 +126,7 @@ export default async function ContactPage() {
                 <div className="rounded-3xl overflow-hidden border border-mutedBorder shadow-sm bg-white aspect-[16/10] relative mt-8">
                   <iframe
                     title="SCWOP NGO Location Map"
-                    src="https://maps.google.com/maps?q=Community+Care+District&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Semit+Fiyel+Bet+Addis+Ababa&t=&z=14&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

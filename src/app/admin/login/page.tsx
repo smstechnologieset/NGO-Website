@@ -3,6 +3,7 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/client";
 
 function LoginFormContent() {
@@ -66,17 +67,22 @@ function LoginFormContent() {
   };
 
   return (
-    <div className="w-full max-w-md p-8 rounded-3xl bg-white border border-mutedBorder shadow-xl">
+    <div className="w-full max-w-md p-8 sm:p-10 rounded-3xl bg-white border border-mutedBorder shadow-2xl">
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 text-primary mb-3">
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-          </svg>
+        <div className="relative inline-flex items-center justify-center w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 shadow-md mb-4">
+          <Image
+            src="/Logo.png"
+            alt="SCWOP Logo"
+            width={64}
+            height={64}
+            className="object-cover w-full h-full"
+            priority
+          />
         </div>
         <h1 className="font-display text-2xl font-bold text-ink">
           SCWOP Admin Portal
         </h1>
-        <p className="text-xs text-ink/60 mt-1 font-body">
+        <p className="text-xs text-ink/70 mt-1 font-body">
           Sign in to manage gallery photos, site text, and contact submissions.
         </p>
       </div>
@@ -84,7 +90,7 @@ function LoginFormContent() {
       {errorMsg && (
         <div
           role="alert"
-          className="p-4 mb-6 rounded-xl bg-secondaryAccent/15 border border-secondaryAccent/30 text-ink text-xs leading-relaxed"
+          className="p-4 mb-6 rounded-xl bg-accent/15 border border-accent/30 text-ink text-xs leading-relaxed"
         >
           <strong>Authentication Error:</strong> {errorMsg}
         </div>
@@ -101,7 +107,7 @@ function LoginFormContent() {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="admin@scwop.org"
+            placeholder="scwop2019@gmail.com"
             className="w-full px-4 py-3 rounded-xl border border-mutedBorder bg-paper/50 focus:bg-white text-ink text-sm outline-none focus-visible:ring-2 focus-visible:ring-primary"
           />
         </div>
@@ -124,7 +130,7 @@ function LoginFormContent() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3.5 px-6 rounded-full font-medium bg-primary text-white hover:bg-primary-hover disabled:opacity-60 transition-colors shadow-md text-sm focus-visible:ring-2 focus-visible:ring-primary"
+          className="btn-shimmer w-full py-3.5 px-6 rounded-full font-semibold bg-primary text-white hover:bg-primary-hover disabled:opacity-60 transition-all shadow-md text-sm focus-visible:ring-2 focus-visible:ring-primary"
         >
           {loading ? "Authenticating..." : "Sign In to Admin Dashboard"}
         </button>
@@ -133,7 +139,7 @@ function LoginFormContent() {
       <div className="mt-8 pt-6 border-t border-mutedBorder/60 text-center">
         <Link
           href="/"
-          className="text-xs text-ink/70 hover:text-primary transition-colors font-medium inline-flex items-center gap-1"
+          className="text-xs text-ink/70 hover:text-accent transition-colors font-medium inline-flex items-center gap-1"
         >
           ← Back to Public Website
         </Link>
