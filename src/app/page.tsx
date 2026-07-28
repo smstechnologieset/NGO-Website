@@ -108,8 +108,8 @@ export default async function HomePage() {
                 <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
                   <div className="relative aspect-[4/5] w-full">
                     <Image
-                      src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop"
-                      alt="SCWOP children and elders in community learning center"
+                      src="/Children%20gathered%20and%20standing%20together.JPG"
+                      alt="SCWOP children gathered and standing together"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                       sizes="(max-width: 1024px) 100vw, 40vw"
@@ -229,7 +229,7 @@ export default async function HomePage() {
                   Monthly Cash Transfers
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Providing direct monthly financial aid to <strong>1,100 Elders</strong> and <strong>130 Orphan & Vulnerable Children (OVC)</strong> to cover vital basic living expenses.
+                  Providing direct monthly financial aid to <strong>1,100 Elders</strong> and <strong>130 Orphan & Vulnerable Children (OVC)</strong> selected beneficiaries to cover basic living expenses.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-primary">
@@ -247,7 +247,7 @@ export default async function HomePage() {
                   Healthcare Services & Medication
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Facilitating access to essential medical treatments, routine clinical check-ups, and ongoing prescription medications for vulnerable individuals.
+                  Access to essential medical treatments, routine check-ups, and prescription medications for vulnerable individuals.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-accent">
@@ -265,7 +265,7 @@ export default async function HomePage() {
                   Home Renovation & Repairs
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Rehabilitating dilapidated and unsafe housing to guarantee safe, hygienic, and dignified living conditions for impoverished families and seniors.
+                  Rehabilitating dilapidated houses to ensure safe, hygienic, and dignified living conditions for families and elders.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-secondaryAccent">
@@ -283,7 +283,7 @@ export default async function HomePage() {
                   Income Generating Activities (IGA)
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Empowering active elderly individuals and immediate caregivers with seed capital and practical business training to foster sustainable self-reliance.
+                  Empowering active elderly individuals or their immediate caregivers with seed capital and basic business training to foster self-reliance.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-accent">
@@ -301,7 +301,7 @@ export default async function HomePage() {
                   Food & Clothing Supply
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Regular, structured distribution of nutritious food packages and seasonal clothing items to ensure basic human needs are consistently met.
+                  Regular distribution of nutritious food items and seasonal clothing to ensure basic human needs are consistently met.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-primary">
@@ -309,17 +309,17 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* 6. Sanitation, Hygiene & Psychosocial Support */}
+            {/* 6. Sanitation and Hygiene */}
             <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent font-bold text-lg">
                   06
                 </div>
                 <h3 className="font-display text-xl font-bold text-ink">
-                  Sanitation & Home Visits
+                  Sanitation, Hygiene & Home Visits
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Routine home visits by social workers and volunteers providing hygiene supplies, psychosocial support, medical follow-ups, and companionship for bedridden elders.
+                  Home visits by social workers or volunteers to provide psychosocial support, medical follow-ups, and companionship for bedridden elders.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-secondaryAccent">
@@ -327,6 +327,110 @@ export default async function HomePage() {
               </div>
             </div>
           </ScrollReveal>
+        </div>
+      </section>
+
+      {/* OVC (ORPHAN & VULNERABLE CHILDREN) SPECIAL PROGRAM SECTION */}
+      <section className="py-24 bg-gradient-to-b from-paper via-paper to-white border-b border-mutedBorder">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Image Column */}
+            <div className="lg:col-span-5 relative">
+              <ScrollReveal animation="slide-right">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full group">
+                  <Image
+                    src="/Children%20gathered%20and%20standing%20together.JPG"
+                    alt="SCWOP Orphan and Vulnerable Children (OVC) program"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 text-paper">
+                    <span className="text-xs font-bold uppercase tracking-wider text-accent block">
+                      130 OVC Children Supported
+                    </span>
+                    <p className="font-display text-xl font-bold">
+                      Comprehensive Child Care & Education
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+
+            {/* Content Column */}
+            <div className="lg:col-span-7">
+              <ScrollReveal animation="slide-left" className="space-y-6">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/20 border border-accent/40 text-ink text-xs font-semibold">
+                  <span className="w-2 h-2 rounded-full bg-accent" />
+                  Specialized Intervention • OVC Program
+                </div>
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
+                  Orphan & Vulnerable Children (OVC) Holistic Support
+                </h2>
+                <p className="text-base text-ink/80 leading-relaxed font-body">
+                  Beyond general relief, SCWOP delivers a dedicated 5-pillar support framework specifically tailored for 130 Orphan & Vulnerable Children:
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  {/* A */}
+                  <div className="p-4 rounded-2xl bg-white border border-mutedBorder/80 shadow-xs flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs flex-shrink-0 mt-0.5">
+                      A
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-ink">Monthly Tuition & Care Fee</h4>
+                      <p className="text-xs text-ink/75 mt-0.5">Covering monthly school or institutional fees to ensure continuous education without interruption.</p>
+                    </div>
+                  </div>
+
+                  {/* B */}
+                  <div className="p-4 rounded-2xl bg-white border border-mutedBorder/80 shadow-xs flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-accent/20 flex items-center justify-center text-accent font-bold text-xs flex-shrink-0 mt-0.5">
+                      B
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-ink">Educational Materials Support</h4>
+                      <p className="text-xs text-ink/75 mt-0.5">Providing essential learning supplies including notebooks, pens, pencils, school bags, and uniforms.</p>
+                    </div>
+                  </div>
+
+                  {/* C */}
+                  <div className="p-4 rounded-2xl bg-white border border-mutedBorder/80 shadow-xs flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent font-bold text-xs flex-shrink-0 mt-0.5">
+                      C
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-ink">Christmas Food Gift Support</h4>
+                      <p className="text-xs text-ink/75 mt-0.5">Distributing holiday gift packages containing flour, cooking oil, grains, and food staples for joyful celebrations.</p>
+                    </div>
+                  </div>
+
+                  {/* D */}
+                  <div className="p-4 rounded-2xl bg-white border border-mutedBorder/80 shadow-xs flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-accent/20 flex items-center justify-center text-accent font-bold text-xs flex-shrink-0 mt-0.5">
+                      D
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-ink">Clothing & Footwear Support</h4>
+                      <p className="text-xs text-ink/75 mt-0.5">Providing appropriate seasonal clothing and shoes for all supported children.</p>
+                    </div>
+                  </div>
+
+                  {/* E */}
+                  <div className="p-4 sm:col-span-2 rounded-2xl bg-white border border-mutedBorder/80 shadow-xs flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xs flex-shrink-0 mt-0.5">
+                      E
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-ink">Hygiene Supplies & Health Protection</h4>
+                      <p className="text-xs text-ink/75 mt-0.5">Providing body soap, toothbrushes, and toothpaste, alongside sanitary pads and tissues for adolescent girls.</p>
+                    </div>
+                  </div>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -348,7 +452,7 @@ export default async function HomePage() {
             className="inline-flex items-center gap-2.5 font-semibold text-primary hover:text-accent text-lg group focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1 transition-all"
           >
             <span className="border-b-2 border-primary/30 group-hover:border-accent transition-colors">
-              Learn more about our vision & core values
+              Learn more about our vision, founding history & core values
             </span>
             <svg
               className="w-5 h-5 group-hover:translate-x-1.5 transition-transform text-accent"

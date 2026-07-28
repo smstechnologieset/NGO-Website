@@ -4,62 +4,47 @@ import { GalleryImage } from "@/lib/types/database";
 export const DEFAULT_GALLERY_IMAGES: GalleryImage[] = [
   {
     id: "default-1",
-    image_url:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop",
-    title: "Early Childhood Education & Nutrition",
+    image_url: "/Founders%20giving%20speach.JPG",
+    title: "SCWOP Leadership & Community Speech",
     description:
-      "Providing interactive learning materials, healthy meals, and foundational literacy for children in underserved communities.",
+      "SCWOP leadership addressing community members and partners during an organizational milestone gathering.",
     display_order: 1,
     created_at: new Date().toISOString(),
   },
   {
     id: "default-2",
-    image_url:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop",
-    title: "Women's Micro-Enterprise Workshop",
+    image_url: "/Children%20gathered%20and%20standing%20together.JPG",
+    title: "Orphan & Vulnerable Children (OVC) Support",
     description:
-      "Skills training, financial literacy, and peer support networks empowering women entrepreneurs to gain economic independence.",
+      "Children receiving educational materials, tuition care, and seasonal clothing support in the community.",
     display_order: 2,
     created_at: new Date().toISOString(),
   },
   {
     id: "default-3",
-    image_url:
-      "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop",
-    title: "Older Adults Wellness & Social Circle",
+    image_url: "/Elderly%20sitting%20together.JPG",
+    title: "Monthly Elderly Care & Fellowship",
     description:
-      "Weekly health checkups, physical wellness activities, and social gatherings honoring our senior community members.",
+      "Beneficiary elders gathered during monthly cash transfer and nutritional support distribution.",
     display_order: 3,
     created_at: new Date().toISOString(),
   },
   {
     id: "default-4",
-    image_url:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-    title: "Generations Together Storytelling",
+    image_url: "/Elderly%20standing%20together.JPG",
+    title: "Senior Community Members Gathering",
     description:
-      "Intergenerational program connecting youth and elders to share wisdom, heritage preservation, and mutual companionship.",
+      "Honoring elderly community members as part of SCWOP's holistic care and dignified support initiatives.",
     display_order: 4,
     created_at: new Date().toISOString(),
   },
   {
     id: "default-5",
-    image_url:
-      "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=1200&auto=format&fit=crop",
-    title: "Community Health & Medical Outreach",
+    image_url: "/Eldery%20walking%20into%20a%20room.JPG",
+    title: "Healthcare & Home Renovation Visits",
     description:
-      "Mobile healthcare units delivering preventative care, essential supplies, and health education to families.",
+      "Social workers and volunteers providing medical follow-ups and home rehabilitation checkups for elders.",
     display_order: 5,
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: "default-6",
-    image_url:
-      "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop",
-    title: "Youth Leadership & Mentorship",
-    description:
-      "Fostering confidence, peer mentoring, and community civic participation among teenagers and young adults.",
-    display_order: 6,
     created_at: new Date().toISOString(),
   },
 ];

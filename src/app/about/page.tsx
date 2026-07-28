@@ -9,7 +9,7 @@ import { getAllSiteContent } from "@/lib/services/content";
 export const metadata = {
   title: "About Us | SCWOP NGO",
   description:
-    "Learn about SCWOP's vision, mission, core values (Humanitarianism, Transparency, Integrity, Gender Equality), and history.",
+    "Learn about SCWOP's vision, mission, core values (Humanitarianism, Transparency, Integrity, Gender Equality), and 2001 founding history.",
 };
 
 export const revalidate = 60;
@@ -131,7 +131,7 @@ export default async function AboutPage() {
                 Transparency & Accountability
               </h3>
               <p className="text-sm text-ink/80 leading-relaxed font-body">
-                Operating with openness and taking full responsibility for our actions and outcomes.
+                Operating with openness and taking full responsibility for our actions.
               </p>
             </div>
 
@@ -157,7 +157,7 @@ export default async function AboutPage() {
                 Gender Equality
               </h3>
               <p className="text-sm text-ink/80 leading-relaxed font-body">
-                Promoting fairness, inclusivity, and equal opportunities across all programs and interventions.
+                Promoting fairness, inclusivity, and equal opportunities across all programs.
               </p>
             </div>
           </ScrollReveal>
@@ -170,14 +170,18 @@ export default async function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 relative">
               <ScrollReveal animation="slide-right">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full">
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full group">
                   <Image
-                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
-                    alt="SCWOP community elders and staff"
+                    src="/Founders%20giving%20speach.JPG"
+                    alt="SCWOP founders addressing community members"
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-6 right-6 text-paper text-xs font-semibold">
+                    SCWOP Founders & Leadership Community Address
+                  </div>
                 </div>
               </ScrollReveal>
             </div>
@@ -185,20 +189,20 @@ export default async function AboutPage() {
             <div className="lg:col-span-6">
               <ScrollReveal animation="slide-left" className="space-y-6">
                 <span className="text-xs font-semibold uppercase tracking-wider text-primary block">
-                  Our Journey & Roots
+                  Our Journey & Roots (Est. 2001)
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
-                  Organization Background & History
+                  Organization Founding Story & History
                 </h2>
                 <p className="text-base sm:text-lg text-ink/80 leading-relaxed font-body">
                   {content.about_founding_story}
                 </p>
-                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20">
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
                   <blockquote className="font-display text-lg italic text-ink">
-                    &ldquo;Serving individuals with dignity and placing human well-being above all.&rdquo;
+                    &ldquo;From 5 founders supporting 30 vulnerable people in 2001 to now serving 1,100 elders and 130 children.&rdquo;
                   </blockquote>
-                  <span className="text-xs font-semibold text-primary block mt-3 uppercase tracking-wider">
-                    — SCWOP Humanitarian Commitment
+                  <span className="text-xs font-semibold text-primary block uppercase tracking-wider">
+                    — SCWOP 20+ Year Milestone Impact
                   </span>
                 </div>
               </ScrollReveal>
@@ -216,7 +220,7 @@ export default async function AboutPage() {
             Partner with SCWOP Today
           </h2>
           <p className="text-base text-paper/80 font-body max-w-2xl mx-auto">
-            Whether you represent a community organization, a government entity, or a donor partner, your collaboration strengthens our impact across vulnerable households.
+            Whether you represent a community organization, a government entity, or an international donor partner, your collaboration strengthens our impact across vulnerable households.
           </p>
           <div className="pt-2">
             <Link

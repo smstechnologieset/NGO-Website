@@ -29,10 +29,10 @@ export const DEFAULT_SITE_CONTENT: Record<string, string> = {
   about_vision:
     "To be a robust and impactful organization that drives sustainable and positive transformation in the lives of the community.",
   about_founding_story:
-    "Support for Children, Women and Older People (SCWOP) was established to address the critical gaps in social protection for vulnerable households. Operating under the core values of Humanitarianism, Transparency, Integrity, and Gender Equality, SCWOP delivers essential cash transfers, healthcare, home rehabilitation, food supplies, and psychosocial support directly to families in need.",
+    "Established in 2001, this indigenous non-governmental organization was founded by a passionate team of five individuals with a mission to support 30 vulnerable people. Over the years, the organization navigated and overcame numerous operational and financial hurdles. A significant turning point came when they secured partnership with an international donor, boosting their capacity. Today, the organization has scaled its impact significantly, providing essential care, shelter, and support to 1,100 elderly individuals and 130 children in need.",
 
-  contact_address: "Limi kura woreda 10 around Semit Fiyel Bet, Addis Ababa",
-  contact_phone: "+251 11 662 8613 / +251 11 662 8614 / +251 91 140 6118",
+  contact_address: "Subcity Limi kura woreda 10 around Semit Fiyel Bet, Addis Ababa",
+  contact_phone: "+251 11 662 8613 / 14 | +251 91 140 6118",
   contact_email: "scwop2019@gmail.com",
   contact_hours: "Monday - Friday: 8:30 AM - 5:30 PM",
 };
