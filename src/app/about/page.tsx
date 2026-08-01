@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SuccessStoriesSection from "@/components/ui/SuccessStoriesSection";
 import { getAllSiteContent } from "@/lib/services/content";
 
 export const metadata = {
   title: "About Us | SCWOP NGO",
   description:
-    "Learn about SCWOP's vision, mission, core values (Humanitarianism, Transparency, Integrity, Gender Equality), and 2001 founding history.",
+    "Learn about SCWOP's vision, mission, core values, strategic objectives (Elderly Care, Economic Empowerment, OVC Education), and 2001 founding history.",
 };
 
 export const revalidate = 60;
@@ -92,6 +93,106 @@ export default async function AboutPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* CORE OBJECTIVES SECTION */}
+      <section className="py-24 bg-gradient-to-b from-paper to-white border-b border-mutedBorder">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal animation="fade-up" className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary block">
+              Strategic Mandate
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink">
+              Our Primary Objectives
+            </h2>
+            <p className="text-base text-ink/75 font-body leading-relaxed">
+              Targeted focus areas guiding all SCWOP humanitarian operations and intergenerational community interventions.
+            </p>
+          </ScrollReveal>
+
+          <ScrollReveal animation="stagger-children" stagger={0.15} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Objective 1: Elderly Care */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-5 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  01
+                </div>
+                <h3 className="font-display text-2xl font-bold text-ink">
+                  Elderly Care & Well-being
+                </h3>
+                <p className="text-base text-ink/80 leading-relaxed font-body">
+                  To provide elderly individuals with love, comprehensive care, and essential basic needs, ensuring they spend their remaining years in dignity.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-mutedBorder/60 space-y-2 text-xs font-medium text-ink/70">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Monthly Cash Transfers & Food Packages
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Cataract Eye Surgeries & Medical Aids
+                </div>
+              </div>
+            </div>
+
+            {/* Objective 2: Economic Empowerment */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-5 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center text-accent font-bold text-xl">
+                  02
+                </div>
+                <h3 className="font-display text-2xl font-bold text-ink">
+                  Economic Empowerment
+                </h3>
+                <p className="text-base text-ink/80 leading-relaxed font-body">
+                  To transition the elderly away from begging by fostering self-reliance, enabling them to sustainably support themselves and their families.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-mutedBorder/60 space-y-2 text-xs font-medium text-ink/70">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  IGA Seed Capital & Skill Workshops
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  Micro-Enterprise Business Training
+                </div>
+              </div>
+            </div>
+
+            {/* Objective 3: Educational Support for OVC */}
+            <div className="glass-card glass-card-hover p-8 rounded-3xl space-y-5 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-14 h-14 rounded-2xl bg-secondaryAccent/20 flex items-center justify-center text-secondaryAccent font-bold text-xl">
+                  03
+                </div>
+                <h3 className="font-display text-2xl font-bold text-ink">
+                  Educational Support for OVC
+                </h3>
+                <p className="text-base text-ink/80 leading-relaxed font-body">
+                  To empower the grandchildren of the elderly by providing access to high-quality education, equipping them to become supportive pillars for their families and impactful citizens for their country.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-mutedBorder/60 space-y-2 text-xs font-medium text-ink/70">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondaryAccent" />
+                  Tuition, Uniforms & Learning Supplies
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondaryAccent" />
+                  Holiday Food Gifts & Hygiene Support
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* SUCCESS STORIES SECTION */}
+      <SuccessStoriesSection />
 
       {/* CORE VALUES SECTION */}
       <section className="py-24 bg-white border-b border-mutedBorder">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import SuccessStoriesSection from "@/components/ui/SuccessStoriesSection";
 import { getAllSiteContent } from "@/lib/services/content";
 import { getGalleryImages } from "@/lib/services/gallery";
 import HomeGalleryPreview from "./HomeGalleryPreview";
@@ -244,14 +245,14 @@ export default async function HomePage() {
                   02
                 </div>
                 <h3 className="font-display text-xl font-bold text-ink">
-                  Healthcare Services & Medication
+                  Healthcare Services & Eye Surgeries
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Access to essential medical treatments, routine check-ups, and prescription medications for vulnerable individuals.
+                  Access to essential medical treatments, routine check-ups, and life-changing cataract eye surgeries for elderly community members.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-accent">
-                Medical Care & Wellness
+                Medical Care & Eye Surgery
               </div>
             </div>
 
@@ -265,7 +266,7 @@ export default async function HomePage() {
                   Home Renovation & Repairs
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Rehabilitating dilapidated houses to ensure safe, hygienic, and dignified living conditions for families and elders.
+                  Rehabilitating dilapidated houses to ensure safe, hygienic, and dignified living conditions for vulnerable elders.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-secondaryAccent">
@@ -283,7 +284,7 @@ export default async function HomePage() {
                   Income Generating Activities (IGA)
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Empowering active elderly individuals or their immediate caregivers with seed capital and basic business training to foster self-reliance.
+                  Empowering active elderly individuals or caregivers with seed capital and business training to foster self-reliance and transition away from begging.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-accent">
@@ -291,21 +292,21 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* 5. Food and Clothing Supply */}
+            {/* 5. Medical Equipment & Mobility Aids */}
             <div className="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
               <div className="space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
                   05
                 </div>
                 <h3 className="font-display text-xl font-bold text-ink">
-                  Food & Clothing Supply
+                  Medical Equipment & Mobility Aids
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Regular distribution of nutritious food items and seasonal clothing to ensure basic human needs are consistently met.
+                  Providing wheelchairs, crutches, and blind canes to enhance physical mobility and independence for senior citizens.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-primary">
-                Nutritional & Material Support
+                Mobility & Adaptive Assistive Devices
               </div>
             </div>
 
@@ -319,7 +320,7 @@ export default async function HomePage() {
                   Sanitation, Hygiene & Home Visits
                 </h3>
                 <p className="text-sm text-ink/80 leading-relaxed font-body">
-                  Home visits by social workers or volunteers to provide psychosocial support, medical follow-ups, and companionship for bedridden elders.
+                  Home visits by social workers or volunteers to provide psychosocial support, hygiene kits, medical follow-ups, and companionship for bedridden elders.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-mutedBorder/50 text-xs font-semibold text-secondaryAccent">
@@ -366,10 +367,10 @@ export default async function HomePage() {
                   Specialized Intervention • OVC Program
                 </div>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
-                  Orphan & Vulnerable Children (OVC) Holistic Support
+                  Orphan & Vulnerable Children (OVC) Educational Support
                 </h2>
                 <p className="text-base text-ink/80 leading-relaxed font-body">
-                  Beyond general relief, SCWOP delivers a dedicated 5-pillar support framework specifically tailored for 130 Orphan & Vulnerable Children:
+                  Empowering the grandchildren of the elderly by providing access to high-quality education, equipping them to become supportive pillars for their families and impactful citizens for their country through a 5-pillar support framework:
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -434,6 +435,9 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* NEW INTERACTIVE SUCCESS STORIES SECTION */}
+      <SuccessStoriesSection />
+
       {/* MISSION EXCERPT SECTION */}
       <section className="py-24 bg-gradient-to-br from-paper via-accent/5 to-paper relative overflow-hidden">
         <ScrollReveal animation="fade-up" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -452,7 +456,7 @@ export default async function HomePage() {
             className="inline-flex items-center gap-2.5 font-semibold text-primary hover:text-accent text-lg group focus-visible:ring-2 focus-visible:ring-primary rounded-lg p-1 transition-all"
           >
             <span className="border-b-2 border-primary/30 group-hover:border-accent transition-colors">
-              Learn more about our vision, founding history & core values
+              Learn more about our vision, strategic objectives & core values
             </span>
             <svg
               className="w-5 h-5 group-hover:translate-x-1.5 transition-transform text-accent"
