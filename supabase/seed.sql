@@ -1,5 +1,6 @@
 -- Seed data for SCWOP NGO Website
 
+
 -- Seed default site content keys & values
 insert into site_content (key, value) values
   ('hero_title', 'Support for Children, Women and Older People (SCWOP)'),
