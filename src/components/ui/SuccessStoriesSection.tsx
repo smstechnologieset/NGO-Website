@@ -17,79 +17,87 @@ interface StoryItem {
   icon: React.ReactNode;
 }
 
-const SUCCESS_STORIES: StoryItem[] = [
-  {
-    id: "renovation",
-    category: "Shelter & Dignity",
-    title: "Elderly Home Renovation",
-    tagline: "Restoring dignity and safety for vulnerable seniors",
-    description:
-      "Restoring dignity and safety by transforming the living homes of vulnerable Elders. SCWOP rehabilitates dilapidated structures, repairs roofs, installs hygienic sanitation facilities, and creates safe, weather-proof living environments.",
-    image: "/Eldery%20walking%20into%20a%20room.JPG",
-    badge: "Safe Shelter Rehabilitation",
-    highlights: ["Roof & Structural Repairs", "Hygienic Sanitation Systems", "Weather-proof Living Spaces"],
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-  },
-  {
-    id: "eyecare",
-    category: "Health & Sight",
-    title: "Elderly Eye Care Services",
-    tagline: "Restoring vision and hope through medical intervention",
-    description:
-      "Restoring vision and hope through life-changing cataract surgeries and comprehensive eye exams. SCWOP partners with medical specialists to provide free screenings, prescription eyeglasses, and surgical procedures for elderly community members.",
-    image: "/Elderly%20sitting%20together.JPG",
-    badge: "Cataract Surgeries & Sight Restored",
-    highlights: ["Free Comprehensive Eye Exams", "Cataract Surgical Procedures", "Prescription Eyeglasses Distribution"],
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-    ),
-  },
-  {
-    id: "mobility",
-    category: "Mobility & Inclusion",
-    title: "Medical Equipment Distribution",
-    tagline: "Enhancing mobility and independence for bedridden & disabled elders",
-    description:
-      "Enhancing mobility and independence by providing essential aids like wheelchairs, crutches, and blind canes. This initiative enables senior citizens to navigate their homes and communities with confidence and minimal physical assistance.",
-    image: "/Elderly%20standing%20together.JPG",
-    badge: "Wheelchairs, Crutches & Blind Canes",
-    highlights: ["Custom Wheelchair Fitting", "Walking Crutches & Mobility Frames", "Blind Canes & Adaptive Aids"],
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.684a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-  },
-  {
-    id: "livelihood",
-    category: "Economic Empowerment",
-    title: "Income-Generating Activities (IGA)",
-    tagline: "Empowering individuals to achieve financial independence",
-    description:
-      "Empowering individuals and families to build sustainable livelihoods and achieve financial independence. SCWOP provides seed capital, micro-enterprise training, and ongoing mentorship to transition vulnerable households away from begging toward self-reliance.",
-    image: "/Founders%20giving%20speach.JPG",
-    badge: "Seed Capital & Business Mentorship",
-    highlights: ["Micro-Enterprise Seed Capital", "Basic Business & Financial Skills", "Transitioning Away From Begging"],
-    icon: (
-      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
-  },
-];
+interface SuccessStoriesSectionProps {
+  content?: Record<string, string>;
+}
 
-export default function SuccessStoriesSection() {
+export default function SuccessStoriesSection({ content }: SuccessStoriesSectionProps) {
   const [activeId, setActiveId] = useState<string>("renovation");
   const [modalStory, setModalStory] = useState<StoryItem | null>(null);
 
-  const activeStory = SUCCESS_STORIES.find((s) => s.id === activeId) || SUCCESS_STORIES[0];
+  const stories: StoryItem[] = [
+    {
+      id: "renovation",
+      category: "Shelter & Dignity",
+      title: content?.story_renovation_title || "Elderly Home Renovation",
+      tagline: content?.story_renovation_tagline || "Restoring dignity and safety for vulnerable seniors",
+      description:
+        content?.story_renovation_desc ||
+        "Restoring dignity and safety by transforming the living homes of vulnerable Elders. SCWOP rehabilitates dilapidated structures, repairs roofs, installs hygienic sanitation facilities, and creates safe, weather-proof living environments.",
+      image: content?.story_renovation_image_url || "/Eldery%20walking%20into%20a%20room.JPG",
+      badge: "Safe Shelter Rehabilitation",
+      highlights: ["Roof & Structural Repairs", "Hygienic Sanitation Systems", "Weather-proof Living Spaces"],
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      ),
+    },
+    {
+      id: "eyecare",
+      category: "Health & Sight",
+      title: content?.story_eyecare_title || "Elderly Eye Care Services",
+      tagline: content?.story_eyecare_tagline || "Restoring vision and hope through medical intervention",
+      description:
+        content?.story_eyecare_desc ||
+        "Restoring vision and hope through life-changing cataract surgeries and comprehensive eye exams. SCWOP partners with medical specialists to provide free screenings, prescription eyeglasses, and surgical procedures for elderly community members.",
+      image: content?.story_eyecare_image_url || "/Elderly%20sitting%20together.JPG",
+      badge: "Cataract Surgeries & Sight Restored",
+      highlights: ["Free Comprehensive Eye Exams", "Cataract Surgical Procedures", "Prescription Eyeglasses Distribution"],
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+      ),
+    },
+    {
+      id: "mobility",
+      category: "Mobility & Inclusion",
+      title: content?.story_mobility_title || "Medical Equipment Distribution",
+      tagline: content?.story_mobility_tagline || "Enhancing mobility and independence for bedridden & disabled elders",
+      description:
+        content?.story_mobility_desc ||
+        "Enhancing mobility and independence by providing essential aids like wheelchairs, crutches, and blind canes. This initiative enables senior citizens to navigate their homes and communities with confidence and minimal physical assistance.",
+      image: content?.story_mobility_image_url || "/Elderly%20standing%20together.JPG",
+      badge: "Wheelchairs, Crutches & Blind Canes",
+      highlights: ["Custom Wheelchair Fitting", "Walking Crutches & Mobility Frames", "Blind Canes & Adaptive Aids"],
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.684a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      ),
+    },
+    {
+      id: "livelihood",
+      category: "Economic Empowerment",
+      title: content?.story_livelihood_title || "Income-Generating Activities (IGA)",
+      tagline: content?.story_livelihood_tagline || "Empowering individuals to achieve financial independence",
+      description:
+        content?.story_livelihood_desc ||
+        "Empowering individuals and families to build sustainable livelihoods and achieve financial independence. SCWOP provides seed capital, micro-enterprise training, and ongoing mentorship to transition vulnerable households away from begging toward self-reliance.",
+      image: content?.story_livelihood_image_url || "/Founders%20giving%20speach.JPG",
+      badge: "Seed Capital & Business Mentorship",
+      highlights: ["Micro-Enterprise Seed Capital", "Basic Business & Financial Skills", "Transitioning Away From Begging"],
+      icon: (
+        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      ),
+    },
+  ];
+
+  const activeStory = stories.find((s) => s.id === activeId) || stories[0];
 
   return (
     <section className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-paper to-paper border-b border-mutedBorder relative overflow-hidden">
@@ -112,7 +120,7 @@ export default function SuccessStoriesSection() {
 
         {/* Interactive Story Selector Tabs */}
         <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-12">
-          {SUCCESS_STORIES.map((story) => {
+          {stories.map((story) => {
             const isSelected = story.id === activeId;
             return (
               <button
@@ -218,7 +226,7 @@ export default function SuccessStoriesSection() {
 
         {/* 4 Cards Grid for Quick Scannability */}
         <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {SUCCESS_STORIES.map((story) => (
+          {stories.map((story) => (
             <div
               key={story.id}
               onClick={() => setActiveId(story.id)}

@@ -110,7 +110,7 @@ export default async function HomePage() {
                 <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
                   <div className="relative aspect-[4/5] w-full">
                     <Image
-                      src="/Children%20gathered%20and%20standing%20together.JPG"
+                      src={content.hero_image_url || "/Children%20gathered%20and%20standing%20together.JPG"}
                       alt="SCWOP children gathered and standing together"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
@@ -344,7 +344,7 @@ export default async function HomePage() {
               <ScrollReveal animation="slide-right">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/3] w-full group">
                   <Image
-                    src="/Children%20gathered%20and%20standing%20together.JPG"
+                    src={content.ovc_section_image_url || "/Children%20gathered%20and%20standing%20together.JPG"}
                     alt="SCWOP Orphan and Vulnerable Children (OVC) program"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -440,7 +440,7 @@ export default async function HomePage() {
       </section>
 
       {/* SUCCESS STORIES SECTION */}
-      <SuccessStoriesSection />
+      <SuccessStoriesSection content={content} />
 
       {/* MISSION EXCERPT SECTION */}
       <section className="py-24 bg-gradient-to-br from-paper via-accent/5 to-paper relative overflow-hidden">

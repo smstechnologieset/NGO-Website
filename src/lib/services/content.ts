@@ -6,6 +6,7 @@ export const DEFAULT_SITE_CONTENT: Record<string, string> = {
     "Driving sustainable transformation and bringing lasting solutions for children, women, and the elderly through holistic care, strategic partnerships, and community empowerment.",
   hero_cta_primary: "Explore Our Programs",
   hero_cta_secondary: "Get Involved",
+  hero_image_url: "/Children%20gathered%20and%20standing%20together.JPG",
 
   stat_1_number: "1,100+",
   stat_1_label: "Elders Provided Monthly Cash Transfers",
@@ -30,11 +31,51 @@ export const DEFAULT_SITE_CONTENT: Record<string, string> = {
     "To be a robust and impactful organization that drives sustainable and positive transformation in the lives of the community.",
   about_founding_story:
     "Established in 2001, this indigenous non-governmental organization was founded by a passionate team of five individuals with a mission to support 30 vulnerable people. Over the years, the organization navigated and overcame numerous operational and financial hurdles. A significant turning point came when they secured partnership with an international donor, boosting their capacity. Today, the organization has scaled its impact significantly, providing essential care, shelter, and support to 1,100 elderly individuals and 130 children in need.",
+  about_founding_image_url: "/Founders%20giving%20speach.JPG",
+  ovc_section_image_url: "/Children%20gathered%20and%20standing%20together.JPG",
+
+  // Strategic Objectives
+  objective_1_title: "Elderly Care & Well-being",
+  objective_1_desc:
+    "To provide elderly individuals with love, comprehensive care, and essential basic needs, ensuring they spend their remaining years in dignity.",
+  objective_2_title: "Economic Empowerment",
+  objective_2_desc:
+    "To transition the elderly away from begging by fostering self-reliance, enabling them to sustainably support themselves and their families.",
+  objective_3_title: "Educational Support for OVC",
+  objective_3_desc:
+    "To empower the grandchildren of the elderly by providing access to high-quality education, equipping them to become supportive pillars for their families and impactful citizens for their country.",
+
+  // Success Stories Content & Images
+  story_renovation_title: "Elderly Home Renovation",
+  story_renovation_tagline: "Restoring dignity and safety for vulnerable seniors",
+  story_renovation_desc:
+    "Restoring dignity and safety by transforming the living homes of vulnerable Elders. SCWOP rehabilitates dilapidated structures, repairs roofs, installs hygienic sanitation facilities, and creates safe, weather-proof living environments.",
+  story_renovation_image_url: "/Eldery%20walking%20into%20a%20room.JPG",
+
+  story_eyecare_title: "Elderly Eye Care Services",
+  story_eyecare_tagline: "Restoring vision and hope through medical intervention",
+  story_eyecare_desc:
+    "Restoring vision and hope through life-changing cataract surgeries and comprehensive eye exams. SCWOP partners with medical specialists to provide free screenings, prescription eyeglasses, and surgical procedures for elderly community members.",
+  story_eyecare_image_url: "/Elderly%20sitting%20together.JPG",
+
+  story_mobility_title: "Medical Equipment Distribution",
+  story_mobility_tagline: "Enhancing mobility and independence for bedridden & disabled elders",
+  story_mobility_desc:
+    "Enhancing mobility and independence by providing essential aids like wheelchairs, crutches, and blind canes. This initiative enables senior citizens to navigate their homes and communities with confidence and minimal physical assistance.",
+  story_mobility_image_url: "/Elderly%20standing%20together.JPG",
+
+  story_livelihood_title: "Income-Generating Activities (IGA)",
+  story_livelihood_tagline: "Empowering individuals to achieve financial independence",
+  story_livelihood_desc:
+    "Empowering individuals and families to build sustainable livelihoods and achieve financial independence. SCWOP provides seed capital, micro-enterprise training, and ongoing mentorship to transition vulnerable households away from begging toward self-reliance.",
+  story_livelihood_image_url: "/Founders%20giving%20speach.JPG",
 
   contact_address: "Subcity Limi kura woreda 10 around Semit Fiyel Bet, Addis Ababa",
   contact_phone: "+251 11 662 8613 / 14 | +251 91 140 6118",
   contact_email: "scwop2019@gmail.com",
   contact_hours: "Monday - Friday: 8:30 AM - 5:30 PM",
+  contact_map_url:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5902397164677!2d38.8499572737006!3d9.009798491050788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b9a8e058e429d%3A0x222a2b149db3b13a!2sSummit%20Fiyel%20Bet!5e0!3m2!1sen!2set!4v1785753524675!5m2!1sen!2set",
 };
 
 export async function getAllSiteContent(): Promise<Record<string, string>> {
@@ -70,4 +111,38 @@ export async function updateSiteContent(key: string, value: string): Promise<boo
   }
 
   return true;
+}
+
+export async function uploadContentImage(file: File): Promise<string> {
+  const supabase: any = createClient();
+  const fileExt = file.name.split(".").pop() || "png";
+  const fileName = `content-${Date.now()}-${Math.random().toString(36).substring(2, 8)}.${fileExt}`;
+  const filePath = `site-content/${fileName}`;
+
+  try {
+    const { error: uploadError } = await supabase.storage
+      .from("gallery")
+      .upload(filePath, file, { cacheControl: "3600", upsert: true });
+
+    if (uploadError) {
+      console.warn("Supabase storage upload failed, converting to Base64 data URL for content", uploadError);
+      return new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = (e) => reject(e);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    const { data: urlData } = supabase.storage.from("gallery").getPublicUrl(filePath);
+    return urlData.publicUrl;
+  } catch (err) {
+    console.warn("Storage upload exception, converting to base64 Data URL fallback", err);
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (e) => reject(e);
+      reader.readAsDataURL(file);
+    });
+  }
 }

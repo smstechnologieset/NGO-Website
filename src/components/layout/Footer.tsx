@@ -90,7 +90,7 @@ export default function Footer() {
                   href="/admin"
                   className="hover:text-accent transition-colors text-paper/50 text-xs"
                 >
-                  Admin Portal
+              
                 </Link>
               </li>
             </ul>

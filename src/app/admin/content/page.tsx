@@ -1,21 +1,43 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { getAllSiteContent, updateSiteContent } from "@/lib/services/content";
+import React, { useState, useEffect, useRef } from "react";
+import { getAllSiteContent, updateSiteContent, uploadContentImage } from "@/lib/services/content";
 
-const CONTENT_SECTIONS = [
+interface FieldDef {
+  key: string;
+  label: string;
+  rows: number;
+  isImage?: boolean;
+}
+
+interface SectionDef {
+  title: string;
+  description: string;
+  fields: FieldDef[];
+}
+
+const PRESET_PUBLIC_IMAGES = [
+  { label: "Founders & Leadership Address", path: "/Founders%20giving%20speach.JPG" },
+  { label: "Children Gathered (OVC Support)", path: "/Children%20gathered%20and%20standing%20together.JPG" },
+  { label: "Elderly Sitting Together (Care)", path: "/Elderly%20sitting%20together.JPG" },
+  { label: "Elderly Standing Gathering", path: "/Elderly%20standing%20together.JPG" },
+  { label: "Home Renovation & Doctor Visit", path: "/Eldery%20walking%20into%20a%20room.JPG" },
+];
+
+const CONTENT_SECTIONS: SectionDef[] = [
   {
-    title: "Hero Section",
-    description: "Main headline and tagline displayed at the top of the Home page",
+    title: "Hero Section & Visual Image",
+    description: "Main headline, tagline, and hero visual image displayed at the top of the Home page",
     fields: [
       { key: "hero_title", label: "Hero Main Headline", rows: 2 },
       { key: "hero_tagline", label: "Hero Mission Tagline", rows: 3 },
       { key: "hero_cta_primary", label: "Primary CTA Button Text", rows: 1 },
       { key: "hero_cta_secondary", label: "Secondary CTA Button Text", rows: 1 },
+      { key: "hero_image_url", label: "Hero Visual Image", rows: 1, isImage: true },
     ],
   },
   {
-    title: "Impact Stats & Highlight Cards",
+    title: "Impact Stats & Metric Cards",
     description: "The 4 highlight metric cards displayed on the Home page",
     fields: [
       { key: "stat_1_number", label: "Stat Card 1 - Number / Value", rows: 1 },
@@ -29,32 +51,62 @@ const CONTENT_SECTIONS = [
     ],
   },
   {
-    title: "Mission Excerpt & Closing Banner",
-    description: "Featured home page mission text and closing CTA banner",
+    title: "Primary Strategic Objectives",
+    description: "The 3 core strategic objectives displayed on the About Us page",
     fields: [
-      { key: "mission_excerpt_title", label: "Mission Excerpt Heading", rows: 1 },
-      { key: "mission_excerpt_body", label: "Mission Excerpt Body Copy", rows: 4 },
-      { key: "cta_banner_title", label: "Closing Banner Headline", rows: 2 },
-      { key: "cta_banner_subtitle", label: "Closing Banner Subtitle", rows: 3 },
+      { key: "objective_1_title", label: "Objective 1 - Title", rows: 1 },
+      { key: "objective_1_desc", label: "Objective 1 - Description", rows: 3 },
+      { key: "objective_2_title", label: "Objective 2 - Title", rows: 1 },
+      { key: "objective_2_desc", label: "Objective 2 - Description", rows: 3 },
+      { key: "objective_3_title", label: "Objective 3 - Title", rows: 1 },
+      { key: "objective_3_desc", label: "Objective 3 - Description", rows: 3 },
     ],
   },
   {
-    title: "About Us Page Text",
-    description: "Mission, vision statement, and founding story on /about",
+    title: "Success Stories & Field Interventions",
+    description: "Titles, descriptions, and image URLs for the 4 success story showcase cards",
+    fields: [
+      { key: "story_renovation_title", label: "Story 1 (Renovation) - Title", rows: 1 },
+      { key: "story_renovation_tagline", label: "Story 1 (Renovation) - Tagline", rows: 1 },
+      { key: "story_renovation_desc", label: "Story 1 (Renovation) - Body Narrative", rows: 3 },
+      { key: "story_renovation_image_url", label: "Story 1 (Renovation) - Image", rows: 1, isImage: true },
+
+      { key: "story_eyecare_title", label: "Story 2 (Eye Care) - Title", rows: 1 },
+      { key: "story_eyecare_tagline", label: "Story 2 (Eye Care) - Tagline", rows: 1 },
+      { key: "story_eyecare_desc", label: "Story 2 (Eye Care) - Body Narrative", rows: 3 },
+      { key: "story_eyecare_image_url", label: "Story 2 (Eye Care) - Image", rows: 1, isImage: true },
+
+      { key: "story_mobility_title", label: "Story 3 (Medical Equipment) - Title", rows: 1 },
+      { key: "story_mobility_tagline", label: "Story 3 (Medical Equipment) - Tagline", rows: 1 },
+      { key: "story_mobility_desc", label: "Story 3 (Medical Equipment) - Body Narrative", rows: 3 },
+      { key: "story_mobility_image_url", label: "Story 3 (Medical Equipment) - Image", rows: 1, isImage: true },
+
+      { key: "story_livelihood_title", label: "Story 4 (IGA Livelihoods) - Title", rows: 1 },
+      { key: "story_livelihood_tagline", label: "Story 4 (IGA Livelihoods) - Tagline", rows: 1 },
+      { key: "story_livelihood_desc", label: "Story 4 (IGA Livelihoods) - Body Narrative", rows: 3 },
+      { key: "story_livelihood_image_url", label: "Story 4 (IGA Livelihoods) - Image", rows: 1, isImage: true },
+    ],
+  },
+  {
+    title: "About Us & Program Section Images",
+    description: "Mission, vision, founding story narrative, and featured section images",
     fields: [
       { key: "about_mission", label: "Official Mission Statement", rows: 3 },
       { key: "about_vision", label: "Official Vision Statement", rows: 3 },
       { key: "about_founding_story", label: "Founding Story Narrative", rows: 5 },
+      { key: "about_founding_image_url", label: "Founding Story Section Image", rows: 1, isImage: true },
+      { key: "ovc_section_image_url", label: "OVC Special Program Image", rows: 1, isImage: true },
     ],
   },
   {
-    title: "Contact Information",
-    description: "Public contact details shown on /contact and in the Footer",
+    title: "Contact Info & Location Google Map",
+    description: "Public contact details shown on /contact, in the Footer, and embedded Google Map URL",
     fields: [
       { key: "contact_address", label: "Physical Address", rows: 2 },
       { key: "contact_phone", label: "Phone / WhatsApp Contact Numbers", rows: 2 },
       { key: "contact_email", label: "Email Addresses", rows: 2 },
       { key: "contact_hours", label: "Office Operating Hours", rows: 1 },
+      { key: "contact_map_url", label: "Google Maps Embed URL (iframe src)", rows: 2 },
     ],
   },
 ];
@@ -63,9 +115,12 @@ export default function AdminContentPage() {
   const [contentMap, setContentMap] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(true);
   const [savingKey, setSavingKey] = useState<string | null>(null);
+  const [uploadingKey, setUploadingKey] = useState<string | null>(null);
   const [savingAll, setSavingAll] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+  const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   useEffect(() => {
     fetchContent();
@@ -80,6 +135,25 @@ export default function AdminContentPage() {
 
   const handleFieldChange = (key: string, value: string) => {
     setContentMap((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleDeviceFileUpload = async (key: string, e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingKey(key);
+    setErrorMsg("");
+    try {
+      const publicUrl = await uploadContentImage(file);
+      handleFieldChange(key, publicUrl);
+      setSuccessMsg(`Image uploaded from device for "${key}"`);
+      setTimeout(() => setSuccessMsg(""), 3500);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to upload image from device.";
+      setErrorMsg(msg);
+    } finally {
+      setUploadingKey(null);
+    }
   };
 
   const handleSaveSingle = async (key: string) => {
@@ -134,13 +208,13 @@ export default function AdminContentPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <span className="text-xs font-semibold uppercase tracking-wider text-accent block mb-1">
-            Site Copy Management
+            Site Content & Device Image Management
           </span>
           <h1 className="font-display text-3xl font-bold text-ink">
-            Editable Text Block Editor
+            Editable Site Text & Image Manager
           </h1>
           <p className="text-sm text-ink/75 mt-1 font-body">
-            Edit live text strings across the public website. Changes update the `site_content` table in Supabase.
+            Upload images directly from your device file manager, choose from public photos, or edit live site copy and Google Map embeds.
           </p>
         </div>
 
@@ -170,7 +244,7 @@ export default function AdminContentPage() {
           role="alert"
           className="p-4 rounded-xl bg-secondaryAccent/15 border border-secondaryAccent/30 text-ink text-sm"
         >
-          <strong>Save Error:</strong> {errorMsg}
+          <strong>Notice:</strong> {errorMsg}
         </div>
       )}
 
@@ -178,7 +252,7 @@ export default function AdminContentPage() {
         {CONTENT_SECTIONS.map((section) => (
           <div
             key={section.title}
-            className="p-8 rounded-3xl bg-white border border-mutedBorder shadow-sm space-y-6"
+            className="p-6 sm:p-8 rounded-3xl bg-white border border-mutedBorder shadow-sm space-y-6"
           >
             <div className="border-b border-mutedBorder/60 pb-4">
               <h2 className="font-display text-xl font-bold text-ink">
@@ -203,14 +277,98 @@ export default function AdminContentPage() {
                     <button
                       type="button"
                       onClick={() => handleSaveSingle(field.key)}
-                      disabled={savingKey === field.key}
+                      disabled={savingKey === field.key || uploadingKey === field.key}
                       className="text-xs text-primary hover:underline font-semibold disabled:opacity-50"
                     >
                       {savingKey === field.key ? "Saving..." : "Save Field"}
                     </button>
                   </div>
 
-                  {field.rows === 1 ? (
+                  {/* SPECIAL IMAGE FIELD INTERFACE */}
+                  {field.isImage ? (
+                    <div className="p-4 rounded-2xl bg-paper/60 border border-mutedBorder space-y-4">
+                      {/* Image Preview Thumbnail */}
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div className="relative w-28 h-20 rounded-xl overflow-hidden border border-mutedBorder bg-white flex-shrink-0 shadow-sm">
+                          {contentMap[field.key] ? (
+                            /* eslint-disable-next-line @next/next/no-img-element */
+                            <img
+                              src={contentMap[field.key]}
+                              alt="Live Image Preview"
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-ink/40 text-[10px]">
+                              No Image
+                            </div>
+                          )}
+                        </div>
+
+                        <div className="flex-1 space-y-2 w-full">
+                          {/* File manager upload button */}
+                          <div className="flex flex-wrap items-center gap-2">
+                            <input
+                              type="file"
+                              accept="image/*"
+                              className="hidden"
+                              ref={(el) => {
+                                fileInputRefs.current[field.key] = el;
+                              }}
+                              onChange={(e) => handleDeviceFileUpload(field.key, e)}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => fileInputRefs.current[field.key]?.click()}
+                              disabled={uploadingKey === field.key}
+                              className="px-4 py-2 rounded-xl bg-accent text-white hover:bg-accent-hover text-xs font-semibold shadow-sm transition-all flex items-center gap-2"
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                              </svg>
+                              <span>{uploadingKey === field.key ? "Uploading..." : "Upload Photo from Device"}</span>
+                            </button>
+
+                            {/* Preset Dropdown */}
+                            <select
+                              onChange={(e) => {
+                                if (e.target.value) handleFieldChange(field.key, e.target.value);
+                              }}
+                              defaultValue=""
+                              className="px-3 py-2 rounded-xl border border-mutedBorder bg-white text-ink text-xs outline-none focus:ring-1 focus:ring-primary"
+                            >
+                              <option value="" disabled>
+                                -- Select Existing Photo --
+                              </option>
+                              {PRESET_PUBLIC_IMAGES.map((img) => (
+                                <option key={img.path} value={img.path}>
+                                  {img.label}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+
+                          <p className="text-[11px] text-ink/60 font-body">
+                            Click <strong>Upload Photo from Device</strong> to select an image from your computer or phone file manager.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Text URL Input Fallback */}
+                      <div className="space-y-1">
+                        <label className="text-[10px] uppercase font-bold text-ink/50 block">
+                          Image URL / Path Target:
+                        </label>
+                        <input
+                          id={`field-${field.key}`}
+                          type="text"
+                          value={contentMap[field.key] || ""}
+                          onChange={(e) => handleFieldChange(field.key, e.target.value)}
+                          placeholder="/path/to/image.jpg or https://..."
+                          className="w-full px-3.5 py-2.5 rounded-xl border border-mutedBorder bg-white text-ink text-xs font-mono outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        />
+                      </div>
+                    </div>
+                  ) : field.rows === 1 ? (
                     <input
                       id={`field-${field.key}`}
                       type="text"

@@ -118,10 +118,10 @@ export default async function AboutPage() {
                   01
                 </div>
                 <h3 className="font-display text-2xl font-bold text-ink">
-                  Elderly Care & Well-being
+                  {content.objective_1_title || "Elderly Care & Well-being"}
                 </h3>
                 <p className="text-base text-ink/80 leading-relaxed font-body">
-                  To provide elderly individuals with love, comprehensive care, and essential basic needs, ensuring they spend their remaining years in dignity.
+                  {content.objective_1_desc || "To provide elderly individuals with love, comprehensive care, and essential basic needs, ensuring they spend their remaining years in dignity."}
                 </p>
               </div>
 
@@ -144,10 +144,10 @@ export default async function AboutPage() {
                   02
                 </div>
                 <h3 className="font-display text-2xl font-bold text-ink">
-                  Economic Empowerment
+                  {content.objective_2_title || "Economic Empowerment"}
                 </h3>
                 <p className="text-base text-ink/80 leading-relaxed font-body">
-                  To transition the elderly away from begging by fostering self-reliance, enabling them to sustainably support themselves and their families.
+                  {content.objective_2_desc || "To transition the elderly away from begging by fostering self-reliance, enabling them to sustainably support themselves and their families."}
                 </p>
               </div>
 
@@ -170,10 +170,10 @@ export default async function AboutPage() {
                   03
                 </div>
                 <h3 className="font-display text-2xl font-bold text-ink">
-                  Educational Support for OVC
+                  {content.objective_3_title || "Educational Support for OVC"}
                 </h3>
                 <p className="text-base text-ink/80 leading-relaxed font-body">
-                  To empower the grandchildren of the elderly by providing access to high-quality education, equipping them to become supportive pillars for their families and impactful citizens for their country.
+                  {content.objective_3_desc || "To empower the grandchildren of the elderly by providing access to high-quality education, equipping them to become supportive pillars for their families and impactful citizens for their country."}
                 </p>
               </div>
 
@@ -196,7 +196,7 @@ export default async function AboutPage() {
       <ImpactGraphicsHub />
 
       {/* SUCCESS STORIES SECTION */}
-      <SuccessStoriesSection />
+      <SuccessStoriesSection content={content} />
 
       {/* CORE VALUES SECTION */}
       <section className="py-24 bg-white border-b border-mutedBorder">
@@ -277,7 +277,7 @@ export default async function AboutPage() {
               <ScrollReveal animation="slide-right">
                 <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white aspect-[4/3] w-full group">
                   <Image
-                    src="/Founders%20giving%20speach.JPG"
+                    src={content.about_founding_image_url || "/Founders%20giving%20speach.JPG"}
                     alt="SCWOP founders addressing community members"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
