@@ -5,6 +5,7 @@ import Link from "next/link";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SuccessStoriesSection from "@/components/ui/SuccessStoriesSection";
+import ImpactGraphicsHub from "@/components/ui/ImpactGraphicsHub";
 import { getAllSiteContent } from "@/lib/services/content";
 
 export const metadata = {
@@ -190,6 +191,9 @@ export default async function AboutPage() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* INTERACTIVE IMPACT GRAPHICS HUB */}
+      <ImpactGraphicsHub />
 
       {/* SUCCESS STORIES SECTION */}
       <SuccessStoriesSection />

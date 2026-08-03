@@ -4,6 +4,7 @@ import Image from "next/image";
 import EmbraceMotif from "@/components/ui/EmbraceMotif";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import SuccessStoriesSection from "@/components/ui/SuccessStoriesSection";
+import ImpactGraphicsHub from "@/components/ui/ImpactGraphicsHub";
 import { getAllSiteContent } from "@/lib/services/content";
 import { getGalleryImages } from "@/lib/services/gallery";
 import HomeGalleryPreview from "./HomeGalleryPreview";
@@ -331,6 +332,9 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* NEW INTERACTIVE GRAPHICS & STATS HUB */}
+      <ImpactGraphicsHub />
+
       {/* OVC (ORPHAN & VULNERABLE CHILDREN) SPECIAL PROGRAM SECTION */}
       <section className="py-24 bg-gradient-to-b from-paper via-paper to-white border-b border-mutedBorder">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -435,7 +439,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* NEW INTERACTIVE SUCCESS STORIES SECTION */}
+      {/* SUCCESS STORIES SECTION */}
       <SuccessStoriesSection />
 
       {/* MISSION EXCERPT SECTION */}
