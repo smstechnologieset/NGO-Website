@@ -27,9 +27,39 @@ export default function ContactForm() {
     setStatus("submitting");
     setErrorMessage("");
 
-    const res = await submitContactMessage(name, email, message, honeypot);
+    // Fire both Supabase save and Formspree email notification in parallel
+    const [supabaseResult, formspreeResult] = await Promise.allSettled([
+      // 1. Save to Supabase (admin dashboard inbox)
+      submitContactMessage(name, email, message, honeypot),
 
-    if (res.success) {
+      // 2. Send email notification via Formspree
+      fetch("https://formspree.io/f/xyeggkjv", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+          _subject: `New SCWOP Contact: ${name.trim()}`,
+        }),
+      }),
+    ]);
+
+    // Check Supabase result
+    const supabaseOk =
+      supabaseResult.status === "fulfilled" && supabaseResult.value.success;
+
+    // Check Formspree result
+    const formspreeOk =
+      formspreeResult.status === "fulfilled" && formspreeResult.value.ok;
+
+    // Log any failures silently (don't block user)
+    if (!formspreeOk) {
+      console.warn("Formspree email delivery issue:", formspreeResult);
+    }
+
+    // As long as at least one channel succeeded, show success to the visitor
+    if (supabaseOk || formspreeOk) {
       setStatus("success");
       setName("");
       setEmail("");
@@ -37,7 +67,11 @@ export default function ContactForm() {
       setLastSubmitTime(now);
     } else {
       setStatus("error");
-      setErrorMessage(res.error || "An error occurred while submitting your message.");
+      const supabaseError =
+        supabaseResult.status === "fulfilled"
+          ? supabaseResult.value.error
+          : "Database unavailable";
+      setErrorMessage(supabaseError || "An error occurred while submitting your message.");
     }
   };
 

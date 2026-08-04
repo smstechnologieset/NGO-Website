@@ -164,7 +164,7 @@ insert into site_content (key, value) values
   -- About Page
   ('about_mission', 'To bring about lasting solutions for children, women, and the elderly by providing holistic support and addressing their specific needs, through strategic partnerships with the community, government, and relevant stakeholders.'),
   ('about_vision', 'To be a robust and impactful organization that drives sustainable and positive transformation in the lives of the community.'),
-  ('about_founding_story', 'Established in 2001, this indigenous non-governmental organization was founded by a passionate team of five individuals with a mission to support 30 vulnerable people. Over the years, the organization navigated and overcame numerous operational and financial hurdles. A significant turning point came when they secured partnership with an international donor, boosting their capacity. Today, the organization has scaled its impact significantly, providing essential care, shelter, and support to 1,100 elderly individuals and 130 children in need.'),
+  ('about_founding_story', 'Established in 1993, this indigenous non-governmental organization was founded by a passionate team of five individuals with a mission to support 30 vulnerable people. Over the years, the organization navigated and overcame numerous operational and financial hurdles. A significant turning point came when they secured partnership with an international donor, boosting their capacity. Today, the organization has scaled its impact significantly, providing essential care, shelter, and support to 1,100 elderly individuals and 130 children in need.'),
   ('about_founding_image_url', '/Founders%20giving%20speach.JPG'),
   ('ovc_section_image_url', '/Children%20gathered%20and%20standing%20together.JPG'),
 
@@ -201,7 +201,7 @@ insert into site_content (key, value) values
   ('story_livelihood_image_url', '/Founders%20giving%20speach.JPG'),
 
   -- Contact Info
-  ('contact_address', 'Subcity Limi kura woreda 10 around Semit Fiyel Bet, Addis Ababa'),
+  ('contact_address', 'Subcity Lemi Kura woreda 10 around Semit Fiyel Bet, Addis Ababa'),
   ('contact_phone', '+251 11 662 8613 / 14 | +251 91 140 6118'),
   ('contact_email', 'scwop2019@gmail.com'),
   ('contact_hours', 'Monday - Friday: 8:30 AM - 5:30 PM'),

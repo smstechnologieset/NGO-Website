@@ -125,7 +125,7 @@ export default async function HomePage() {
                       Three Generations, One Mission
                     </span>
                     <p className="font-display text-2xl font-bold leading-snug">
-                      Children • Women • Older Adults
+                      Children • Women • Elders
                     </p>
                     <p className="text-xs text-paper/80 font-body">
                       Empowering vulnerable families with care, dignity, and education.

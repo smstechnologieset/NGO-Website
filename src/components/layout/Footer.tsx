@@ -154,7 +154,7 @@ export default function Footer() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span>Limi kura woreda 10 around Semit Fiyel Bet</span>
+                <span>Lemi Kura woreda 10 around Semit Fiyel Bet</span>
               </p>
               <p className="flex items-center gap-2.5">
                 <svg

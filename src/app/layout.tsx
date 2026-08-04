@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "Women economic empowerment Ethiopia",
     "Cataract eye surgery Ethiopia",
     "Elderly home renovation Addis Ababa",
-    "Limi kura woreda 10 Semit Fiyel Bet",
+    "Lemi Kura woreda 10 Semit Fiyel Bet",
   ],
   authors: [{ name: "SCWOP NGO Ethiopia", url: siteUrl }],
   creator: "SCWOP NGO",
@@ -115,10 +115,10 @@ export default function RootLayout({
     image: `${siteUrl}/Children%20gathered%20and%20standing%20together.JPG`,
     description:
       "An indigenous non-governmental organization in Addis Ababa, Ethiopia driving sustainable transformation for children, women, and older people through cash transfers, healthcare, eye care, shelter renovation, and OVC educational support.",
-    foundingDate: "2001",
+    foundingDate: "1993",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Subcity Limi kura woreda 10 around Semit Fiyel Bet",
+      streetAddress: "Subcity Lemi Kura woreda 10 around Semit Fiyel Bet",
       addressLocality: "Addis Ababa",
       addressCountry: "ET",
     },

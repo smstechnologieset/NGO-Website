@@ -11,7 +11,7 @@ import { getAllSiteContent } from "@/lib/services/content";
 export const metadata = {
   title: "About Us | SCWOP NGO",
   description:
-    "Learn about SCWOP's vision, mission, core values, strategic objectives (Elderly Care, Economic Empowerment, OVC Education), and 2001 founding history.",
+    "Learn about SCWOP's vision, mission, core values, strategic objectives (Elderly Care, Economic Empowerment, OVC Education), and 1993 founding history.",
 };
 
 export const revalidate = 60;
@@ -294,7 +294,7 @@ export default async function AboutPage() {
             <div className="lg:col-span-6">
               <ScrollReveal animation="slide-left" className="space-y-6">
                 <span className="text-xs font-semibold uppercase tracking-wider text-primary block">
-                  Our Journey & Roots (Est. 2001)
+                  Our Journey & Roots (Est. 1993)
                 </span>
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink">
                   Organization Founding Story & History
@@ -304,7 +304,7 @@ export default async function AboutPage() {
                 </p>
                 <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
                   <blockquote className="font-display text-lg italic text-ink">
-                    &ldquo;From 5 founders supporting 30 vulnerable people in 2001 to now serving 1,100 elders and 130 children.&rdquo;
+                    &ldquo;From 5 founders supporting 30 vulnerable people in 1993 to now serving 1,100 elders and 130 children.&rdquo;
                   </blockquote>
                   <span className="text-xs font-semibold text-primary block uppercase tracking-wider">
                     — SCWOP 20+ Year Milestone Impact

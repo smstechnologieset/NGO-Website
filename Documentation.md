@@ -31,9 +31,10 @@
 
 ## 1. Project Overview
 
-This is the official website for **SCWOP**, an indigenous NGO based in **Addis Ababa, Ethiopia** (est. 2001). The site serves as a public-facing platform to showcase the organization's mission, programs, success stories, and community impact. It includes a full admin dashboard for content management.
+This is the official website for **SCWOP**, an indigenous NGO based in **Addis Ababa, Ethiopia** (est. 1993). The site serves as a public-facing platform to showcase the organization's mission, programs, success stories, and community impact. It includes a full admin dashboard for content management.
 
 ### What the website does:
+
 - **Public website** — Home, About Us, Photo Gallery, Contact pages
 - **Admin dashboard** — Authenticated staff portal for editing site text, uploading images, managing gallery photos, and reading contact form submissions
 - **CMS** — All text content and images on the site are editable from the admin dashboard without touching code
@@ -43,23 +44,24 @@ This is the official website for **SCWOP**, an indigenous NGO based in **Addis A
 
 ## 2. Tech Stack
 
-| Layer | Technology | Version |
-|-------|-----------|---------|
-| **Framework** | Next.js (App Router) | 16.2.11 |
-| **Language** | TypeScript | 5.x |
-| **UI Library** | React | 19.2.4 |
-| **Styling** | Tailwind CSS | 4.x |
-| **Animation** | GSAP (GreenSock) | 3.15.0 |
-| **Database & Auth** | Supabase (PostgreSQL + Auth) | @supabase/supabase-js 2.110.8 |
-| **SSR Auth** | @supabase/ssr | 0.12.3 |
-| **Hosting** | Vercel | — |
-| **Image Storage** | Supabase Storage (`gallery` bucket) | — |
+| Layer               | Technology                          | Version                       |
+| ------------------- | ----------------------------------- | ----------------------------- |
+| **Framework**       | Next.js (App Router)                | 16.2.11                       |
+| **Language**        | TypeScript                          | 5.x                           |
+| **UI Library**      | React                               | 19.2.4                        |
+| **Styling**         | Tailwind CSS                        | 4.x                           |
+| **Animation**       | GSAP (GreenSock)                    | 3.15.0                        |
+| **Database & Auth** | Supabase (PostgreSQL + Auth)        | @supabase/supabase-js 2.110.8 |
+| **SSR Auth**        | @supabase/ssr                       | 0.12.3                        |
+| **Hosting**         | Vercel                              | —                             |
+| **Image Storage**   | Supabase Storage (`gallery` bucket) | —                             |
 
 ---
 
 ## 3. Getting Started
 
 ### Prerequisites
+
 - **Node.js** >= 18.x
 - **npm** (comes with Node.js)
 - A **Supabase** project (free tier works fine)
@@ -93,12 +95,12 @@ npm run dev
 
 ### Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server (http://localhost:3000) |
-| `npm run build` | Create optimized production build |
-| `npm start` | Serve production build locally |
-| `npm run lint` | Run ESLint code checks |
+| Command         | Description                                      |
+| --------------- | ------------------------------------------------ |
+| `npm run dev`   | Start development server (http://localhost:3000) |
+| `npm run build` | Create optimized production build                |
+| `npm start`     | Serve production build locally                   |
+| `npm run lint`  | Run ESLint code checks                           |
 
 ---
 
@@ -113,6 +115,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 ```
 
 **Where to find these values:**
+
 1. Go to your Supabase project dashboard
 2. Click **Settings** then **API**
 3. Copy the **Project URL**, **anon/public** key, and **service_role** key
@@ -216,45 +219,49 @@ NGO-Website/
 The database has **4 tables**, all defined in `supabase/schema.sql`:
 
 #### `site_content`
+
 Stores all editable text and image URLs for the website.
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `key` | `text` (PK) | Unique identifier for the content block (e.g. `hero_title`, `story_renovation_image_url`) |
-| `value` | `text` | The content value (text string or image URL) |
-| `updated_at` | `timestamptz` | Last modification timestamp |
+| Column       | Type          | Description                                                                               |
+| ------------ | ------------- | ----------------------------------------------------------------------------------------- |
+| `key`        | `text` (PK)   | Unique identifier for the content block (e.g. `hero_title`, `story_renovation_image_url`) |
+| `value`      | `text`        | The content value (text string or image URL)                                              |
+| `updated_at` | `timestamptz` | Last modification timestamp                                                               |
 
 #### `gallery_images`
+
 Stores photo gallery entries.
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | `uuid` (PK) | Auto-generated unique ID |
-| `image_url` | `text` | Path or URL to the image |
-| `title` | `text` | Display title |
-| `description` | `text` | Caption/description |
-| `display_order` | `integer` | Sort order (lower = first) |
-| `created_at` | `timestamptz` | Creation timestamp |
+| Column          | Type          | Description                |
+| --------------- | ------------- | -------------------------- |
+| `id`            | `uuid` (PK)   | Auto-generated unique ID   |
+| `image_url`     | `text`        | Path or URL to the image   |
+| `title`         | `text`        | Display title              |
+| `description`   | `text`        | Caption/description        |
+| `display_order` | `integer`     | Sort order (lower = first) |
+| `created_at`    | `timestamptz` | Creation timestamp         |
 
 #### `contact_messages`
+
 Stores messages submitted via the public contact form.
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `id` | `uuid` (PK) | Auto-generated unique ID |
-| `name` | `text` | Sender's name |
-| `email` | `text` | Sender's email |
-| `message` | `text` | Message body |
-| `is_read` | `boolean` | Whether an admin has marked it as read |
-| `created_at` | `timestamptz` | Submission timestamp |
+| Column       | Type          | Description                            |
+| ------------ | ------------- | -------------------------------------- |
+| `id`         | `uuid` (PK)   | Auto-generated unique ID               |
+| `name`       | `text`        | Sender's name                          |
+| `email`      | `text`        | Sender's email                         |
+| `message`    | `text`        | Message body                           |
+| `is_read`    | `boolean`     | Whether an admin has marked it as read |
+| `created_at` | `timestamptz` | Submission timestamp                   |
 
 #### `admin_users`
+
 Whitelist of emails allowed to access the admin dashboard.
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `email` | `text` (PK) | Authorized admin email address |
-| `created_at` | `timestamptz` | When the admin was added |
+| Column       | Type          | Description                    |
+| ------------ | ------------- | ------------------------------ |
+| `email`      | `text` (PK)   | Authorized admin email address |
+| `created_at` | `timestamptz` | When the admin was added       |
 
 ### Row Level Security (RLS)
 
@@ -283,6 +290,7 @@ A Supabase Storage bucket named `gallery` is created by `schema.sql`. It stores 
 Authentication uses **Supabase Auth** with email/password sign-in.
 
 **Flow:**
+
 1. User navigates to `/admin/login`
 2. Enters email + password
 3. Supabase Auth validates credentials and issues a JWT
@@ -298,6 +306,7 @@ Authentication uses **Supabase Auth** with email/password sign-in.
 4. Make sure the same email exists in the `admin_users` database table
 
 **Default admin emails** (from `seed.sql`):
+
 - `scwop2019@gmail.com`
 - `admin@scwop.org`
 
@@ -314,6 +323,7 @@ Authentication uses **Supabase Auth** with email/password sign-in.
 ### Home Page (`/`) — `src/app/page.tsx`
 
 The main landing page. Sections (top to bottom):
+
 1. **Hero** — Full-width headline, tagline, CTA buttons, and featured image
 2. **Impact Stats** — 4 metric cards (1,100+ Elders, 130+ OVC, etc.)
 3. **Gallery Preview** — Horizontal scrolling photo carousel
@@ -357,11 +367,14 @@ All text and images are dynamically loaded from the `site_content` database tabl
 Access at `/admin/login`. All admin routes are protected by authentication middleware.
 
 ### Overview (`/admin`) — `src/app/admin/page.tsx`
+
 - Dashboard with metric cards showing: total gallery images, content keys count, unread messages
 - Quick-link cards to each management module
 
 ### Site Content Editor (`/admin/content`) — `src/app/admin/content/page.tsx`
+
 The main CMS interface. Organized into sections:
+
 1. **Hero Section & Visual Image** — headline, tagline, CTA text, hero image
 2. **Impact Stats & Metric Cards** — 4 stat numbers and labels
 3. **Primary Strategic Objectives** — 3 objective titles and descriptions
@@ -370,23 +383,27 @@ The main CMS interface. Organized into sections:
 6. **Contact Info & Location Google Map** — address, phone, email, hours, map embed URL
 
 Each image field has:
+
 - **Upload from Device** button — opens native file picker
 - **Preset Photo Dropdown** — select from existing project photos
 - **URL Input** — paste any external URL
 - **Live Thumbnail Preview** — shows current image
 
 ### Gallery Manager (`/admin/gallery`) — `src/app/admin/gallery/page.tsx`
+
 - View all gallery images in a grid
 - Upload new images (to Supabase Storage or as URL)
 - Edit titles, descriptions, and display order
 - Delete images
 
 ### Contact Messages (`/admin/messages`) — `src/app/admin/messages/page.tsx`
+
 - View all submitted contact form messages
 - Mark messages as read/unread
 - See sender name, email, message body, and timestamp
 
 ### Admin Layout (`/admin/layout.tsx`)
+
 - Desktop: sidebar navigation with logo, nav links, "View Live Website" link, sign-out button
 - Mobile: hamburger menu with slide-down navigation
 - Login page (`/admin/login`) bypasses the admin layout wrapper
@@ -398,32 +415,38 @@ Each image field has:
 ### Layout Components (`src/components/layout/`)
 
 **`Navbar.tsx`** — Responsive navigation bar
+
 - Desktop: horizontal links (Home, About, Gallery, Contact)
 - Mobile: hamburger menu with slide-down drawer
 - Active page highlighting
 - Logo and organization name
 
 **`Footer.tsx`** — Full site footer
+
 - 4-column grid: About SCWOP, Quick Links, Key Interventions, Contact Details
 - Bottom copyright bar with discreet admin portal link
 
 ### UI Components (`src/components/ui/`)
 
 **`ScrollReveal.tsx`** — GSAP-powered scroll animation wrapper
+
 - Wraps any content to animate it when it scrolls into view
 - Supports animations: `fade-up`, `slide-right`, `slide-left`, `scale-up`, `stagger-children`
 - Props: `animation`, `duration`, `delay`, `stagger`, `threshold`
 
 **`EmbraceMotif.tsx`** — Decorative SVG background patterns
+
 - Variants: `hero-bg` (large background pattern), `divider` (section divider line), `bullet` (small dot)
 - Used as background decoration throughout sections
 
 **`ImpactGraphicsHub.tsx`** — Animated statistics visualization
+
 - **Animated Donut Dial**: SVG circle showing 89.4% Elders / 10.6% Children distribution with stroke animation on load
 - **Community Impact Estimator**: Interactive calculator — select number of families to see projected outcomes (cash aid, food packages, school sponsorships, health checkups)
 - Fully responsive with mobile-optimized layouts
 
 **`SuccessStoriesSection.tsx`** — Interactive success stories showcase
+
 - Accepts `content` prop to render dynamic text/images from the CMS
 - 4 stories: Home Renovation, Eye Care, Medical Equipment, IGA Livelihoods
 - Tabbed category selector, featured showcase card with image, and 4 mini-cards grid
@@ -436,34 +459,37 @@ Each image field has:
 All database interactions go through service functions in `src/lib/services/`. This provides a clean abstraction over Supabase queries.
 
 ### `content.ts`
-| Function | Description |
-|----------|-------------|
-| `getAllSiteContent()` | Fetches all key-value pairs from `site_content`. Returns defaults if DB is empty. |
-| `updateSiteContent(key, value)` | Upserts a single content key-value pair. |
-| `uploadContentImage(file)` | Uploads a File to Supabase Storage (`gallery/site-content/`). Falls back to base64 data URL if storage fails. |
+
+| Function                        | Description                                                                                                   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `getAllSiteContent()`           | Fetches all key-value pairs from `site_content`. Returns defaults if DB is empty.                             |
+| `updateSiteContent(key, value)` | Upserts a single content key-value pair.                                                                      |
+| `uploadContentImage(file)`      | Uploads a File to Supabase Storage (`gallery/site-content/`). Falls back to base64 data URL if storage fails. |
 
 ### `gallery.ts`
-| Function | Description |
-|----------|-------------|
-| `getGalleryImages()` | Fetches all gallery images ordered by `display_order`. Returns defaults if DB is empty. |
-| `uploadGalleryImage(file, title, description)` | Uploads image to Supabase Storage and creates a `gallery_images` record. |
-| `updateGalleryImage(id, updates)` | Updates title, description, or display order. |
-| `deleteGalleryImage(id)` | Deletes a gallery image record. |
+
+| Function                                       | Description                                                                             |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `getGalleryImages()`                           | Fetches all gallery images ordered by `display_order`. Returns defaults if DB is empty. |
+| `uploadGalleryImage(file, title, description)` | Uploads image to Supabase Storage and creates a `gallery_images` record.                |
+| `updateGalleryImage(id, updates)`              | Updates title, description, or display order.                                           |
+| `deleteGalleryImage(id)`                       | Deletes a gallery image record.                                                         |
 
 ### `contact.ts`
-| Function | Description |
-|----------|-------------|
+
+| Function                                                | Description                                                                       |
+| ------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | `submitContactMessage(name, email, message, honeypot?)` | Validates and inserts a contact message. Silently rejects spam (honeypot filled). |
-| `getContactMessages()` | Fetches all messages ordered by newest first. |
-| `toggleMessageReadStatus(id, currentStatus)` | Toggles the `is_read` boolean. |
+| `getContactMessages()`                                  | Fetches all messages ordered by newest first.                                     |
+| `toggleMessageReadStatus(id, currentStatus)`            | Toggles the `is_read` boolean.                                                    |
 
 ### Supabase Clients (`src/lib/supabase/`)
 
-| File | Usage |
-|------|-------|
-| `client.ts` | Browser-side client using `createBrowserClient()` — used in client components and services |
-| `server.ts` | Server-side client using `createServerClient()` with cookie access — used in server components |
-| `middleware.ts` | Session refresh logic called by `src/middleware.ts` on every request |
+| File            | Usage                                                                                          |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| `client.ts`     | Browser-side client using `createBrowserClient()` — used in client components and services     |
+| `server.ts`     | Server-side client using `createServerClient()` with cookie access — used in server components |
+| `middleware.ts` | Session refresh logic called by `src/middleware.ts` on every request                           |
 
 **Important:** Services cast the Supabase client as `any` (`const supabase: any = createClient()`) to bypass strict TypeScript generated CLI typings during build. This is intentional to avoid needing `supabase gen types` after every schema change.
 
@@ -569,6 +595,7 @@ Messages are intentionally saved even if the Supabase connection has issues (the
 ### JSON-LD Structured Data
 
 Embedded in `layout.tsx` as a `<script type="application/ld+json">` tag:
+
 - Schema.org type: `NGO`
 - Organization name, alternate name, founding date
 - Physical address and GPS coordinates (Summit Fiyel Bet)
@@ -578,6 +605,7 @@ Embedded in `layout.tsx` as a `<script type="application/ld+json">` tag:
 ### Per-Page Metadata
 
 Each page exports its own `metadata` object:
+
 - **Home**: Default from layout
 - **About**: `"About Us | SCWOP NGO"` with description
 - **Gallery**: `"Photo Gallery | SCWOP NGO"` with description
@@ -585,11 +613,11 @@ Each page exports its own `metadata` object:
 
 ### Generated Files
 
-| File | Route | Source |
-|------|-------|--------|
-| `sitemap.ts` | `/sitemap.xml` | Lists all public pages with priorities and change frequencies |
-| `robots.ts` | `/robots.txt` | Allows crawling of public pages, disallows `/admin/` and `/api/` |
-| `manifest.ts` | `/manifest.webmanifest` | PWA manifest with app name, colors, and icons |
+| File          | Route                   | Source                                                           |
+| ------------- | ----------------------- | ---------------------------------------------------------------- |
+| `sitemap.ts`  | `/sitemap.xml`          | Lists all public pages with priorities and change frequencies    |
+| `robots.ts`   | `/robots.txt`           | Allows crawling of public pages, disallows `/admin/` and `/api/` |
+| `manifest.ts` | `/manifest.webmanifest` | PWA manifest with app name, colors, and icons                    |
 
 ---
 
@@ -597,14 +625,14 @@ Each page exports its own `metadata` object:
 
 ### Brand Colors (defined in `globals.css`)
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--color-ink` | `#0B284C` | Primary text, dark backgrounds |
-| `--color-paper` | `#F0F5F9` | Page background, light surfaces |
-| `--color-primary` | `#0B284C` | Deep navy — headings, buttons, nav |
-| `--color-accent` | `#0284C7` | Water blue — highlights, links, CTAs |
-| `--color-secondaryAccent` | `#E63946` | Red accent — alerts, emphasis |
-| `--color-mutedBorder` | `#D4DDE6` | Borders, dividers |
+| Token                     | Hex       | Usage                                |
+| ------------------------- | --------- | ------------------------------------ |
+| `--color-ink`             | `#0B284C` | Primary text, dark backgrounds       |
+| `--color-paper`           | `#F0F5F9` | Page background, light surfaces      |
+| `--color-primary`         | `#0B284C` | Deep navy — headings, buttons, nav   |
+| `--color-accent`          | `#0284C7` | Water blue — highlights, links, CTAs |
+| `--color-secondaryAccent` | `#E63946` | Red accent — alerts, emphasis        |
+| `--color-mutedBorder`     | `#D4DDE6` | Borders, dividers                    |
 
 ### Typography
 
@@ -614,12 +642,12 @@ Each page exports its own `metadata` object:
 
 ### CSS Classes and Utilities
 
-| Class | Description |
-|-------|-------------|
-| `glass-card` | Frosted glass card with backdrop blur and subtle border |
-| `glass-card-hover` | Adds hover lift and shadow animation |
-| `btn-shimmer` | Animated shimmer/shine effect on buttons |
-| `animate-fade-in` | Fade-in animation for modals and overlays |
+| Class              | Description                                             |
+| ------------------ | ------------------------------------------------------- |
+| `glass-card`       | Frosted glass card with backdrop blur and subtle border |
+| `glass-card-hover` | Adds hover lift and shadow animation                    |
+| `btn-shimmer`      | Animated shimmer/shine effect on buttons                |
+| `animate-fade-in`  | Fade-in animation for modals and overlays               |
 
 ### Responsive Breakpoints
 
@@ -700,26 +728,32 @@ Edit the CSS custom properties in `src/app/globals.css` under the `@theme` block
 ## 19. Troubleshooting
 
 ### "Authentication Error: Failed to fetch" on Vercel
+
 **Cause:** Supabase environment variables not set on Vercel.
 **Fix:** Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` in Vercel Project Settings under Environment Variables, then redeploy.
 
 ### Login keeps saying "Authenticating..." and never completes
+
 **Cause:** The user email exists in Supabase Auth but not in the `admin_users` database table, or the Supabase Auth user was not created.
 **Fix:** Ensure the email exists in both Supabase Auth users AND the `admin_users` table.
 
 ### Images with spaces in filename not loading
+
 **Cause:** Filenames with spaces need URL encoding.
 **Fix:** Use `%20` for spaces (e.g. `/Elderly%20sitting%20together.JPG`).
 
 ### Port 3000 already in use
+
 **Cause:** A previous dev server process is still running.
 **Fix (Windows):** `netstat -ano | findstr :3000` to find the PID, then `taskkill /PID <PID> /F`.
 
 ### Build fails with "Module not found: font"
+
 **Cause:** Intermittent network issue downloading Google Fonts during build.
 **Fix:** Run `npm run build` again. This is a transient network error.
 
 ### Content changes not showing on the live site
+
 **Cause:** Pages use ISR (Incremental Static Regeneration) with revalidation intervals.
 **Fix:** Wait for the revalidation period (60s for Home/About/Contact, 30s for Gallery) or redeploy to force a full rebuild.
 
@@ -781,5 +815,5 @@ Edit the CSS custom properties in `src/app/globals.css` under the `@theme` block
 
 ---
 
-*Last updated: August 2026*
-*Built with Next.js 16, Supabase, Tailwind CSS 4, and GSAP*
+_Last updated: August 2026_
+_Built with Next.js 16, Supabase, Tailwind CSS 4, and GSAP_
